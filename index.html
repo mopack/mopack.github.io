@@ -262,6 +262,150 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mopack/year/02/23/LC595-Big-Countries/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mopack Chiou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mopack's Code">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/year/02/23/LC595-Big-Countries/" itemprop="url">LC595. Big Countries</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-02-23T08:19:11+08:00">
+                2019-02-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/SQL/" itemprop="url" rel="index">
+                    <span itemprop="name">SQL</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="URI-Online-Judge-SQL-2602-Basic-Select"><a href="#URI-Online-Judge-SQL-2602-Basic-Select" class="headerlink" title="URI Online Judge SQL 2602 - Basic Select"></a>URI Online Judge SQL 2602 - Basic Select</h1><h2 id="題意"><a href="#題意" class="headerlink" title="題意"></a>題意</h2><p>從World表格中，取得所有 area &gt; 3000000 或 population &gt; 25000000 的 name, population, area 欄位。</p>
+<p><a href="https://leetcode.com/problems/big-countries/" target="_blank" rel="noopener">Problem Link</a></p>
+<h2 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> wood;</span><br><span class="line"><span class="keyword">Create</span> <span class="keyword">table</span> <span class="keyword">If</span> <span class="keyword">Not</span> <span class="keyword">Exists</span> World (<span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">255</span>), continent <span class="built_in">varchar</span>(<span class="number">255</span>), area <span class="built_in">int</span>, population <span class="built_in">int</span>, gdp <span class="built_in">int</span>);</span><br><span class="line"><span class="keyword">Truncate</span> <span class="keyword">table</span> World;</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> World (<span class="keyword">name</span>, continent, area, population, gdp) <span class="keyword">values</span> (<span class="string">'Afghanistan'</span>, <span class="string">'Asia'</span>, <span class="string">'652230'</span>, <span class="string">'25500100'</span>, <span class="string">'20343000000'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> World (<span class="keyword">name</span>, continent, area, population, gdp) <span class="keyword">values</span> (<span class="string">'Albania'</span>, <span class="string">'Europe'</span>, <span class="string">'28748'</span>, <span class="string">'2831741'</span>, <span class="string">'12960000000'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> World (<span class="keyword">name</span>, continent, area, population, gdp) <span class="keyword">values</span> (<span class="string">'Algeria'</span>, <span class="string">'Africa'</span>, <span class="string">'2381741'</span>, <span class="string">'37100000'</span>, <span class="string">'188681000000'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> World (<span class="keyword">name</span>, continent, area, population, gdp) <span class="keyword">values</span> (<span class="string">'Andorra'</span>, <span class="string">'Europe'</span>, <span class="string">'468'</span>, <span class="string">'78115'</span>, <span class="string">'3712000000'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> World (<span class="keyword">name</span>, continent, area, population, gdp) <span class="keyword">values</span> (<span class="string">'Angola'</span>, <span class="string">'Africa'</span>, <span class="string">'1246700'</span>, <span class="string">'20609294'</span>, <span class="string">'100990000000'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- Solution: --</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">name</span>, population, area</span><br><span class="line"><span class="keyword">from</span> World</span><br><span class="line"><span class="keyword">where</span> area &gt; <span class="number">3000000</span> <span class="keyword">or</span> population &gt; <span class="number">25000000</span>;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://github.com/mopack/year/02/23/URI2602-Basic-Select/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -672,7 +816,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
