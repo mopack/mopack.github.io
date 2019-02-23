@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Description從customers表格中，取得所有state=’RS’的name欄位。 https://www.urionlinejudge.com.br/judge/en/problems/view/2602 Input12345678910111213141516171819use wood;drop table customers;CREATE TABLE customers (">
+<meta name="description" content="Description在salary表格中，將sex欄位’m’與’f’互換。 https://leetcode.com/problems/swap-salary/ Input input:  12345678910use wood;create table if not exists salary(id int, name varchar(100), sex char(1), salary int">
 <meta name="keywords" content="SQL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="URI2602. Basic Select">
-<meta property="og:url" content="https://github.com/mopack/year/02/23/URI2602-Basic-Select/index.html">
+<meta property="og:title" content="LC627. Swap Salary">
+<meta property="og:url" content="https://github.com/mopack/year/02/23/LC627-Swap-Salary/index.html">
 <meta property="og:site_name" content="Mopack&#39;s Code">
-<meta property="og:description" content="Description從customers表格中，取得所有state=’RS’的name欄位。 https://www.urionlinejudge.com.br/judge/en/problems/view/2602 Input12345678910111213141516171819use wood;drop table customers;CREATE TABLE customers (">
+<meta property="og:description" content="Description在salary表格中，將sex欄位’m’與’f’互換。 https://leetcode.com/problems/swap-salary/ Input input:  12345678910use wood;create table if not exists salary(id int, name varchar(100), sex char(1), salary int">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2019-02-23T03:21:16.764Z">
+<meta property="og:updated_time" content="2019-02-23T03:21:09.456Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="URI2602. Basic Select">
-<meta name="twitter:description" content="Description從customers表格中，取得所有state=’RS’的name欄位。 https://www.urionlinejudge.com.br/judge/en/problems/view/2602 Input12345678910111213141516171819use wood;drop table customers;CREATE TABLE customers (">
+<meta name="twitter:title" content="LC627. Swap Salary">
+<meta name="twitter:description" content="Description在salary表格中，將sex欄位’m’與’f’互換。 https://leetcode.com/problems/swap-salary/ Input input:  12345678910use wood;create table if not exists salary(id int, name varchar(100), sex char(1), salary int">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://github.com/mopack/year/02/23/URI2602-Basic-Select/">
+  <link rel="canonical" href="https://github.com/mopack/year/02/23/LC627-Swap-Salary/">
 
 
 
 
 
-  <title>URI2602. Basic Select | Mopack's Code</title>
+  <title>LC627. Swap Salary | Mopack's Code</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mopack/year/02/23/URI2602-Basic-Select/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mopack/year/02/23/LC627-Swap-Salary/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mopack Chiou">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">URI2602. Basic Select</h1>
+          <h1 class="post-title" itemprop="name headline">LC627. Swap Salary</h1>
         
 
         <div class="post-meta">
@@ -292,7 +292,7 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-02-23T07:44:48+08:00">
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-02-23T09:56:48+08:00">
                 2019-02-23
               </time>
             
@@ -352,34 +352,32 @@
       
 
       
-        <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>從customers表格中，取得所有state=’RS’的name欄位。</p>
-<p><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/2602" target="_blank" rel="noopener">https://www.urionlinejudge.com.br/judge/en/problems/view/2602</a></p>
-<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> wood;</span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> customers;</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> customers (</span><br><span class="line">  <span class="keyword">id</span> <span class="built_in">NUMERIC</span> PRIMARY <span class="keyword">KEY</span>,</span><br><span class="line">  <span class="keyword">name</span> <span class="built_in">CHARACTER</span> <span class="built_in">VARYING</span> (<span class="number">255</span>),</span><br><span class="line">  street <span class="built_in">CHARACTER</span> <span class="built_in">VARYING</span> (<span class="number">255</span>),</span><br><span class="line">  city <span class="built_in">CHARACTER</span> <span class="built_in">VARYING</span> (<span class="number">255</span>),</span><br><span class="line">  state <span class="built_in">CHAR</span> (<span class="number">2</span>),</span><br><span class="line">  credit_limit <span class="built_in">NUMERIC</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> customers (<span class="keyword">id</span>, <span class="keyword">name</span>, street, city, state, credit_limit)</span><br><span class="line"><span class="keyword">VALUES</span> </span><br><span class="line">  (<span class="number">1</span>,	<span class="string">'Pedro Augusto da Rocha'</span>,	<span class="string">'Rua Pedro Carlos Hoffman'</span>,	<span class="string">'Porto Alegre'</span>,	<span class="string">'RS'</span>,	<span class="number">700.00</span>),</span><br><span class="line">  (<span class="number">2</span>,	<span class="string">'Antonio Carlos Mamel'</span>,	<span class="string">'Av. Pinheiros'</span>, <span class="string">'Belo Horizonte'</span>,	<span class="string">'MG'</span>,	<span class="number">3500.50</span>),</span><br><span class="line">  (<span class="number">3</span>,	<span class="string">'Luiza Augusta Mhor'</span>,	<span class="string">'Rua Salto Grande'</span>,	<span class="string">'Niteroi'</span>,	<span class="string">'RJ'</span>,	<span class="number">4000.00</span>),	</span><br><span class="line">  (<span class="number">4</span>,	<span class="string">'Jane Ester'</span>,	<span class="string">'Av 7 de setembro'</span>,	<span class="string">'Erechim'</span>,	<span class="string">'RS'</span>,	<span class="number">800.00</span>),</span><br><span class="line">  (<span class="number">5</span>, <span class="string">'Marcos Antônio dos Santos'</span>,	<span class="string">'Av Farrapos'</span>,	<span class="string">'Porto Alegre'</span>,	<span class="string">'RS'</span>,	<span class="number">4250.25</span>);</span><br></pre></td></tr></table></figure>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">name</span></span><br><span class="line"><span class="keyword">from</span> customers</span><br><span class="line"><span class="keyword">where</span> state = <span class="string">'RS'</span>;</span><br></pre></td></tr></table></figure>
-<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ul>
-<li>String</li>
+        <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>在salary表格中，將sex欄位’m’與’f’互換。</p>
+<p><a href="https://leetcode.com/problems/swap-salary/" target="_blank" rel="noopener">https://leetcode.com/problems/swap-salary/</a></p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><ul>
+<li>input:</li>
 </ul>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>MySQL</th>
-<th>ProgestSQL</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>資料型態</td>
-<td>text</td>
-<td>varchar</td>
-</tr>
-<tr>
-<td>字面常量</td>
-<td>單雙引號皆可</td>
-<td>單引號</td>
-</tr>
-</tbody>
-</table>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> wood;</span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> <span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exists</span> salary(<span class="keyword">id</span> <span class="built_in">int</span>, <span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">100</span>), sex <span class="built_in">char</span>(<span class="number">1</span>), salary <span class="built_in">int</span>);</span><br><span class="line"><span class="keyword">Truncate</span> <span class="keyword">table</span> salary;</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> salary (<span class="keyword">id</span>, <span class="keyword">name</span>, sex, salary) <span class="keyword">values</span> (<span class="string">'1'</span>, <span class="string">'A'</span>, <span class="string">'m'</span>, <span class="string">'2500'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> salary (<span class="keyword">id</span>, <span class="keyword">name</span>, sex, salary) <span class="keyword">values</span> (<span class="string">'2'</span>, <span class="string">'B'</span>, <span class="string">'f'</span>, <span class="string">'1500'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> salary (<span class="keyword">id</span>, <span class="keyword">name</span>, sex, salary) <span class="keyword">values</span> (<span class="string">'3'</span>, <span class="string">'C'</span>, <span class="string">'m'</span>, <span class="string">'5500'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> salary (<span class="keyword">id</span>, <span class="keyword">name</span>, sex, salary) <span class="keyword">values</span> (<span class="string">'4'</span>, <span class="string">'D'</span>, <span class="string">'f'</span>, <span class="string">'500'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> salary;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>safe updates:</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">'%safe_updates%'</span>;</span><br><span class="line"><span class="keyword">set</span> sql_safe_updates = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions"></a>Solutions</h2><ul>
+<li>IF</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> salary </span><br><span class="line"><span class="keyword">set</span> sex = <span class="keyword">if</span>(sex=<span class="string">'m'</span>,<span class="string">'f'</span>,<span class="string">'m'</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>XOR</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> salary</span><br><span class="line"><span class="keyword">set</span> sex = <span class="built_in">char</span>(<span class="keyword">ascii</span>(sex) ^ <span class="keyword">ASCII</span>(<span class="string">'f'</span>) ^ <span class="keyword">ASCII</span>(<span class="string">'m'</span>));</span><br></pre></td></tr></table></figure>
+<ul>
+<li>XOR2</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">ASCII</span>(<span class="string">'f'</span>) ^ <span class="keyword">ASCII</span>(<span class="string">'m'</span>); <span class="comment">-- PreCoding (= 11)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">update</span> salary</span><br><span class="line"><span class="keyword">set</span> sex = <span class="built_in">char</span>(<span class="keyword">ascii</span>(sex) ^ <span class="number">11</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>CASE</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> salary </span><br><span class="line"><span class="keyword">set</span> sex = </span><br><span class="line">(<span class="keyword">case</span> </span><br><span class="line">	<span class="keyword">when</span> sex = <span class="string">'f'</span> <span class="keyword">then</span> <span class="string">'m'</span> </span><br><span class="line">	<span class="keyword">else</span> <span class="string">'f'</span></span><br><span class="line"><span class="keyword">end</span>);</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -410,8 +408,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/year/02/23/Cocos2d-x-Lua的專案建置，以及Win32和Apk的輸出檔建置/" rel="next" title="Cocos2d-X Lua的專案建置，以及Win32和Apk的輸出檔建置">
-                <i class="fa fa-chevron-left"></i> Cocos2d-X Lua的專案建置，以及Win32和Apk的輸出檔建置
+              <a href="/year/02/23/LC595-Big-Countries/" rel="next" title="LC595. Big Countries">
+                <i class="fa fa-chevron-left"></i> LC595. Big Countries
               </a>
             
           </div>
@@ -420,8 +418,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/year/02/23/LC595-Big-Countries/" rel="prev" title="LC595. Big Countries">
-                LC595. Big Countries <i class="fa fa-chevron-right"></i>
+              <a href="/year/02/23/LC620-Not-Boring-Movies/" rel="prev" title="LC620. Not Boring Movies">
+                LC620. Not Boring Movies <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -554,7 +552,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Input"><span class="nav-number">2.</span> <span class="nav-text">Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">3.</span> <span class="nav-text">Solution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Notes"><span class="nav-number">4.</span> <span class="nav-text">Notes</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Input"><span class="nav-number">2.</span> <span class="nav-text">Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solutions"><span class="nav-number">3.</span> <span class="nav-text">Solutions</span></a></li></ol></div>
             
 
           </div>

@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="URI Online Judge SQL 2602 - Basic Select題意從World表格中，取得所有 area &amp;gt; 3000000 或 population &amp;gt; 25000000 的 name, population, area 欄位。 Problem Link 解答12345678910111213use wood;Create table If Not Exists W">
+<meta name="description" content="Description從World表格中，取得所有 area &amp;gt; 3000000 或 population &amp;gt; 25000000 的 name, population, area 欄位。 https://leetcode.com/problems/big-countries/ Input1234567891011use wood;Create table If Not Exists W">
 <meta name="keywords" content="SQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LC595. Big Countries">
 <meta property="og:url" content="https://github.com/mopack/year/02/23/LC595-Big-Countries/index.html">
 <meta property="og:site_name" content="Mopack&#39;s Code">
-<meta property="og:description" content="URI Online Judge SQL 2602 - Basic Select題意從World表格中，取得所有 area &amp;gt; 3000000 或 population &amp;gt; 25000000 的 name, population, area 欄位。 Problem Link 解答12345678910111213use wood;Create table If Not Exists W">
+<meta property="og:description" content="Description從World表格中，取得所有 area &amp;gt; 3000000 或 population &amp;gt; 25000000 的 name, population, area 欄位。 https://leetcode.com/problems/big-countries/ Input1234567891011use wood;Create table If Not Exists W">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2019-02-23T00:21:22.622Z">
+<meta property="og:updated_time" content="2019-02-23T03:20:55.776Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LC595. Big Countries">
-<meta name="twitter:description" content="URI Online Judge SQL 2602 - Basic Select題意從World表格中，取得所有 area &amp;gt; 3000000 或 population &amp;gt; 25000000 的 name, population, area 欄位。 Problem Link 解答12345678910111213use wood;Create table If Not Exists W">
+<meta name="twitter:description" content="Description從World表格中，取得所有 area &amp;gt; 3000000 或 population &amp;gt; 25000000 的 name, population, area 欄位。 https://leetcode.com/problems/big-countries/ Input1234567891011use wood;Create table If Not Exists W">
 
 
 
@@ -352,9 +352,10 @@
       
 
       
-        <h1 id="URI-Online-Judge-SQL-2602-Basic-Select"><a href="#URI-Online-Judge-SQL-2602-Basic-Select" class="headerlink" title="URI Online Judge SQL 2602 - Basic Select"></a>URI Online Judge SQL 2602 - Basic Select</h1><h2 id="題意"><a href="#題意" class="headerlink" title="題意"></a>題意</h2><p>從World表格中，取得所有 area &gt; 3000000 或 population &gt; 25000000 的 name, population, area 欄位。</p>
-<p><a href="https://leetcode.com/problems/big-countries/" target="_blank" rel="noopener">Problem Link</a></p>
-<h2 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> wood;</span><br><span class="line"><span class="keyword">Create</span> <span class="keyword">table</span> <span class="keyword">If</span> <span class="keyword">Not</span> <span class="keyword">Exists</span> World (<span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">255</span>), continent <span class="built_in">varchar</span>(<span class="number">255</span>), area <span class="built_in">int</span>, population <span class="built_in">int</span>, gdp <span class="built_in">int</span>);</span><br><span class="line"><span class="keyword">Truncate</span> <span class="keyword">table</span> World;</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> World (<span class="keyword">name</span>, continent, area, population, gdp) <span class="keyword">values</span> (<span class="string">'Afghanistan'</span>, <span class="string">'Asia'</span>, <span class="string">'652230'</span>, <span class="string">'25500100'</span>, <span class="string">'20343000000'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> World (<span class="keyword">name</span>, continent, area, population, gdp) <span class="keyword">values</span> (<span class="string">'Albania'</span>, <span class="string">'Europe'</span>, <span class="string">'28748'</span>, <span class="string">'2831741'</span>, <span class="string">'12960000000'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> World (<span class="keyword">name</span>, continent, area, population, gdp) <span class="keyword">values</span> (<span class="string">'Algeria'</span>, <span class="string">'Africa'</span>, <span class="string">'2381741'</span>, <span class="string">'37100000'</span>, <span class="string">'188681000000'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> World (<span class="keyword">name</span>, continent, area, population, gdp) <span class="keyword">values</span> (<span class="string">'Andorra'</span>, <span class="string">'Europe'</span>, <span class="string">'468'</span>, <span class="string">'78115'</span>, <span class="string">'3712000000'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> World (<span class="keyword">name</span>, continent, area, population, gdp) <span class="keyword">values</span> (<span class="string">'Angola'</span>, <span class="string">'Africa'</span>, <span class="string">'1246700'</span>, <span class="string">'20609294'</span>, <span class="string">'100990000000'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- Solution: --</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">name</span>, population, area</span><br><span class="line"><span class="keyword">from</span> World</span><br><span class="line"><span class="keyword">where</span> area &gt; <span class="number">3000000</span> <span class="keyword">or</span> population &gt; <span class="number">25000000</span>;</span><br></pre></td></tr></table></figure>
+        <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>從World表格中，取得所有 area &gt; 3000000 或 population &gt; 25000000 的 name, population, area 欄位。</p>
+<p><a href="https://leetcode.com/problems/big-countries/" target="_blank" rel="noopener">https://leetcode.com/problems/big-countries/</a></p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> wood;</span><br><span class="line"></span><br><span class="line"><span class="keyword">Create</span> <span class="keyword">table</span> <span class="keyword">If</span> <span class="keyword">Not</span> <span class="keyword">Exists</span> World (<span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">255</span>), continent <span class="built_in">varchar</span>(<span class="number">255</span>), area <span class="built_in">int</span>, population <span class="built_in">int</span>, gdp <span class="built_in">int</span>);</span><br><span class="line"><span class="keyword">Truncate</span> <span class="keyword">table</span> World;</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> World (<span class="keyword">name</span>, continent, area, population, gdp) <span class="keyword">values</span> (<span class="string">'Afghanistan'</span>, <span class="string">'Asia'</span>, <span class="string">'652230'</span>, <span class="string">'25500100'</span>, <span class="string">'20343000000'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> World (<span class="keyword">name</span>, continent, area, population, gdp) <span class="keyword">values</span> (<span class="string">'Albania'</span>, <span class="string">'Europe'</span>, <span class="string">'28748'</span>, <span class="string">'2831741'</span>, <span class="string">'12960000000'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> World (<span class="keyword">name</span>, continent, area, population, gdp) <span class="keyword">values</span> (<span class="string">'Algeria'</span>, <span class="string">'Africa'</span>, <span class="string">'2381741'</span>, <span class="string">'37100000'</span>, <span class="string">'188681000000'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> World (<span class="keyword">name</span>, continent, area, population, gdp) <span class="keyword">values</span> (<span class="string">'Andorra'</span>, <span class="string">'Europe'</span>, <span class="string">'468'</span>, <span class="string">'78115'</span>, <span class="string">'3712000000'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> World (<span class="keyword">name</span>, continent, area, population, gdp) <span class="keyword">values</span> (<span class="string">'Angola'</span>, <span class="string">'Africa'</span>, <span class="string">'1246700'</span>, <span class="string">'20609294'</span>, <span class="string">'100990000000'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> World;</span><br></pre></td></tr></table></figure>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">name</span>, population, area</span><br><span class="line"><span class="keyword">from</span> World</span><br><span class="line"><span class="keyword">where</span> area &gt; <span class="number">3000000</span> <span class="keyword">or</span> population &gt; <span class="number">25000000</span>;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -394,6 +395,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/year/02/23/LC627-Swap-Salary/" rel="prev" title="LC627. Swap Salary">
+                LC627. Swap Salary <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -470,7 +475,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -525,7 +530,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#URI-Online-Judge-SQL-2602-Basic-Select"><span class="nav-number">1.</span> <span class="nav-text">URI Online Judge SQL 2602 - Basic Select</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#題意"><span class="nav-number">1.1.</span> <span class="nav-text">題意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解答"><span class="nav-number">1.2.</span> <span class="nav-text">解答</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Input"><span class="nav-number">2.</span> <span class="nav-text">Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">3.</span> <span class="nav-text">Solution</span></a></li></ol></div>
             
 
           </div>
