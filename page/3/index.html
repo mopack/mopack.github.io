@@ -262,6 +262,750 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mopack/year/02/23/LC196-Delete-Duplicate-Emails/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mopack Chiou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mopack's Code">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/year/02/23/LC196-Delete-Duplicate-Emails/" itemprop="url">LC196. Delete Duplicate Emails</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-02-23T13:04:36+08:00">
+                2019-02-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/SQL/" itemprop="url" rel="index">
+                    <span itemprop="name">SQL</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>從Person表格中，刪除擁有重複Email的列，僅保有Id最小的列。</p>
+<p><a href="https://leetcode.com/problems/delete-duplicate-emails/" target="_blank" rel="noopener">https://leetcode.com/problems/delete-duplicate-emails/</a></p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> wood;</span><br><span class="line"></span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> Person;</span><br><span class="line"><span class="keyword">Create</span> <span class="keyword">table</span> <span class="keyword">If</span> <span class="keyword">Not</span> <span class="keyword">Exists</span> Person (<span class="keyword">Id</span> <span class="built_in">int</span>, Email <span class="built_in">varchar</span>(<span class="number">255</span>));</span><br><span class="line"><span class="keyword">Truncate</span> <span class="keyword">table</span> Person;</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Person (<span class="keyword">Id</span>, Email) <span class="keyword">values</span> (<span class="string">'1'</span>, <span class="string">'a@b.com'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Person (<span class="keyword">Id</span>, Email) <span class="keyword">values</span> (<span class="string">'2'</span>, <span class="string">'c@d.com'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Person (<span class="keyword">Id</span>, Email) <span class="keyword">values</span> (<span class="string">'3'</span>, <span class="string">'a@b.com'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> Person;</span><br></pre></td></tr></table></figure>
+<h2 id="Solution1-Inner-Join"><a href="#Solution1-Inner-Join" class="headerlink" title="Solution1: Inner Join"></a>Solution1: Inner Join</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- select</span></span><br><span class="line"><span class="keyword">select</span> *</span><br><span class="line"><span class="keyword">from</span> Person a <span class="keyword">join</span> Person b</span><br><span class="line"><span class="keyword">where</span> a.Email = b.Email <span class="keyword">and</span> a.Id &gt; b.Id;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- delete</span></span><br><span class="line"><span class="keyword">delete</span> a</span><br><span class="line"><span class="keyword">from</span> Person a, Person b</span><br><span class="line"><span class="keyword">where</span> a.Email = b.Email <span class="keyword">and</span> a.Id &gt; b.Id;</span><br></pre></td></tr></table></figure>
+<h2 id="Solution2-In-amp-Min"><a href="#Solution2-In-amp-Min" class="headerlink" title="Solution2: In &amp; Min"></a>Solution2: In &amp; Min</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> </span><br><span class="line"><span class="keyword">from</span> Person</span><br><span class="line"><span class="keyword">where</span> <span class="keyword">Id</span> <span class="keyword">not</span> <span class="keyword">in</span> (</span><br><span class="line">	<span class="keyword">select</span> <span class="keyword">Id</span></span><br><span class="line">    <span class="keyword">from</span> (</span><br><span class="line">		<span class="keyword">select</span> <span class="keyword">min</span>(<span class="keyword">Id</span>) <span class="keyword">as</span> <span class="keyword">Id</span></span><br><span class="line">        <span class="keyword">from</span> Person</span><br><span class="line">        <span class="keyword">group</span> <span class="keyword">by</span> Email</span><br><span class="line">    ) p</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mopack/year/02/23/LC197-Rising-Temperature/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mopack Chiou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mopack's Code">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/year/02/23/LC197-Rising-Temperature/" itemprop="url">LC197. Rising Temperature</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-02-23T12:58:13+08:00">
+                2019-02-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/SQL/" itemprop="url" rel="index">
+                    <span itemprop="name">SQL</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>從Weather表格中，取得所有比前一天高溫的欄位的Id。</p>
+<p><a href="https://leetcode.com/problems/rising-temperature/" target="_blank" rel="noopener">https://leetcode.com/problems/rising-temperature/</a></p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> wood;</span><br><span class="line"></span><br><span class="line"><span class="keyword">Create</span> <span class="keyword">table</span> <span class="keyword">If</span> <span class="keyword">Not</span> <span class="keyword">Exists</span> Weather (<span class="keyword">Id</span> <span class="built_in">int</span>, RecordDate <span class="built_in">date</span>, Temperature <span class="built_in">int</span>);</span><br><span class="line"><span class="keyword">Truncate</span> <span class="keyword">table</span> Weather;</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Weather (<span class="keyword">Id</span>, RecordDate, Temperature) <span class="keyword">values</span> (<span class="string">'1'</span>, <span class="string">'2015-01-01'</span>, <span class="string">'10'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Weather (<span class="keyword">Id</span>, RecordDate, Temperature) <span class="keyword">values</span> (<span class="string">'2'</span>, <span class="string">'2015-01-02'</span>, <span class="string">'25'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Weather (<span class="keyword">Id</span>, RecordDate, Temperature) <span class="keyword">values</span> (<span class="string">'3'</span>, <span class="string">'2015-01-03'</span>, <span class="string">'20'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Weather (<span class="keyword">Id</span>, RecordDate, Temperature) <span class="keyword">values</span> (<span class="string">'4'</span>, <span class="string">'2015-01-04'</span>, <span class="string">'30'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> Weather;</span><br></pre></td></tr></table></figure>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><ul>
+<li>datediff</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> a.Id</span><br><span class="line"><span class="keyword">from</span> Weather a <span class="keyword">left</span> <span class="keyword">join</span> Weather b</span><br><span class="line"><span class="keyword">on</span> <span class="keyword">datediff</span>(a.RecordDate, b.RecordDate) = <span class="number">1</span></span><br><span class="line"><span class="keyword">where</span> a.Temperature &gt; b.Temperature;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>date_add</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> a.Id</span><br><span class="line"><span class="keyword">from</span> Weather a <span class="keyword">left</span> <span class="keyword">join</span> Weather b</span><br><span class="line"><span class="keyword">on</span> a.RecordDate = <span class="keyword">date_add</span>(b.RecordDate, <span class="built_in">interval</span> <span class="number">1</span> <span class="keyword">day</span>)</span><br><span class="line"><span class="keyword">where</span> a.Temperature &gt; b.Temperature;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mopack/year/02/23/LC178-Rank-Scores/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mopack Chiou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mopack's Code">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/year/02/23/LC178-Rank-Scores/" itemprop="url">LC178. Rank Scores</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-02-23T12:08:58+08:00">
+                2019-02-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/SQL/" itemprop="url" rel="index">
+                    <span itemprop="name">SQL</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="description"><a href="#description" class="headerlink" title="description"></a>description</h2><p>Scores表格中，有Id和Score兩個欄位，請產生一個Score由高到低的表格，並附加Rank欄位(排名欄位)。注意若有同分Rank依然會依整數接續(1,2,3…)，而不會預留空名次。</p>
+<p><a href="https://leetcode.com/problems/rank-scores/" target="_blank" rel="noopener">https://leetcode.com/problems/rank-scores/</a></p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> wood;</span><br><span class="line"></span><br><span class="line"><span class="keyword">Create</span> <span class="keyword">table</span> <span class="keyword">If</span> <span class="keyword">Not</span> <span class="keyword">Exists</span> Scores (<span class="keyword">Id</span> <span class="built_in">int</span>, Score <span class="built_in">DECIMAL</span>(<span class="number">3</span>,<span class="number">2</span>));</span><br><span class="line"><span class="keyword">Truncate</span> <span class="keyword">table</span> Scores;</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Scores (<span class="keyword">Id</span>, Score) <span class="keyword">values</span> (<span class="string">'1'</span>, <span class="string">'3.5'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Scores (<span class="keyword">Id</span>, Score) <span class="keyword">values</span> (<span class="string">'2'</span>, <span class="string">'3.65'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Scores (<span class="keyword">Id</span>, Score) <span class="keyword">values</span> (<span class="string">'3'</span>, <span class="string">'4.0'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Scores (<span class="keyword">Id</span>, Score) <span class="keyword">values</span> (<span class="string">'4'</span>, <span class="string">'3.85'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Scores (<span class="keyword">Id</span>, Score) <span class="keyword">values</span> (<span class="string">'5'</span>, <span class="string">'4.0'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Scores (<span class="keyword">Id</span>, Score) <span class="keyword">values</span> (<span class="string">'6'</span>, <span class="string">'3.65'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> Scores;</span><br></pre></td></tr></table></figure>
+<h2 id="Solution1-Join-amp-Count-Distinct-Table"><a href="#Solution1-Join-amp-Count-Distinct-Table" class="headerlink" title="Solution1: Join &amp; Count Distinct Table"></a>Solution1: Join &amp; Count Distinct Table</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 1) join two same tables</span></span><br><span class="line"><span class="keyword">select</span> *</span><br><span class="line"><span class="keyword">from</span> Scores s <span class="keyword">join</span> Scores t <span class="keyword">on</span> s.Score &lt;= t.Score;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 2) count(distinct table)</span></span><br><span class="line"><span class="keyword">select</span> s.Score, <span class="keyword">count</span>(<span class="keyword">distinct</span> t.Score) <span class="string">'Rank'</span></span><br><span class="line"><span class="keyword">from</span> Scores s <span class="keyword">join</span> Scores t <span class="keyword">on</span> s.Score &lt;= t.Score</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> s.Id;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 3) order by Score</span></span><br><span class="line"><span class="keyword">select</span> s.Score, <span class="keyword">count</span>(<span class="keyword">distinct</span> t.Score) <span class="string">'Rank'</span></span><br><span class="line"><span class="keyword">from</span> Scores s <span class="keyword">join</span> Scores t <span class="keyword">on</span> s.Score &lt;= t.Score</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> s.Id </span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> s.Score <span class="keyword">desc</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="Solution2-Two-Tables-original-amp-distinct-Count-Compare"><a href="#Solution2-Two-Tables-original-amp-distinct-Count-Compare" class="headerlink" title="Solution2: Two Tables (original &amp; distinct) Count Compare"></a>Solution2: Two Tables (original &amp; distinct) Count Compare</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 1) distinct-value table</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> Score ds <span class="keyword">from</span> Scores s;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 2) count the table</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">count</span>(*) </span><br><span class="line"><span class="keyword">from</span> (<span class="keyword">select</span> <span class="keyword">distinct</span> Score ds <span class="keyword">from</span> Scores s) t;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 3) count the table where t.ds &gt;= s.Score; named Rank</span></span><br><span class="line"><span class="keyword">select</span> s.Score, </span><br><span class="line">(<span class="keyword">select</span> <span class="keyword">count</span>(*) </span><br><span class="line"><span class="keyword">from</span> (<span class="keyword">select</span> <span class="keyword">distinct</span> Score ds <span class="keyword">from</span> Scores s) t </span><br><span class="line"><span class="keyword">where</span> t.ds &gt;= s.Score</span><br><span class="line">) <span class="string">'Rank'</span></span><br><span class="line"><span class="keyword">from</span> Scores s;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 4) order by score</span></span><br><span class="line"><span class="keyword">select</span> s.Score, </span><br><span class="line">(<span class="keyword">select</span> <span class="keyword">count</span>(*) </span><br><span class="line"><span class="keyword">from</span> (<span class="keyword">select</span> <span class="keyword">distinct</span> Score ds <span class="keyword">from</span> Scores s) t </span><br><span class="line"><span class="keyword">where</span> t.ds &gt;= s.Score</span><br><span class="line">) <span class="string">'Rank'</span></span><br><span class="line"><span class="keyword">from</span> Scores s</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> s.Score <span class="keyword">desc</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 5) arrange</span></span><br><span class="line"><span class="keyword">select</span> Score, (<span class="keyword">select</span> <span class="keyword">count</span>(*) <span class="keyword">from</span> (<span class="keyword">select</span> <span class="keyword">distinct</span> Score s <span class="keyword">from</span> Scores) t <span class="keyword">where</span> s &gt;= Score) <span class="string">'Rank'</span></span><br><span class="line"><span class="keyword">from</span> Scores </span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> Score <span class="keyword">desc</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="Solution3"><a href="#Solution3" class="headerlink" title="Solution3"></a>Solution3</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> Score, @<span class="keyword">rank</span> := @<span class="keyword">rank</span> + (@pre &lt;&gt; (@pre := Score)) <span class="string">'Rank'</span></span><br><span class="line"><span class="keyword">from</span> Scores, (<span class="keyword">select</span> @<span class="keyword">rank</span> := <span class="number">0</span>, @pre := <span class="number">-1</span>) init</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> Score <span class="keyword">desc</span>;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mopack/year/02/23/LC596-Classes-More-Than-5-Students/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mopack Chiou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mopack's Code">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/year/02/23/LC596-Classes-More-Than-5-Students/" itemprop="url">LC596. Classes More Than 5 Students</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-02-23T12:02:27+08:00">
+                2019-02-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/SQL/" itemprop="url" rel="index">
+                    <span itemprop="name">SQL</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>從 courses 表格中，包含student和class兩個欄位，找出所有student&gt;=5人的class欄位(注：同名學生只算一人)。</p>
+<p><a href="https://leetcode.com/problems/classes-more-than-5-students/" target="_blank" rel="noopener">https://leetcode.com/problems/classes-more-than-5-students/</a></p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> wood;</span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> <span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exists</span> courses (student <span class="built_in">varchar</span>(<span class="number">255</span>), <span class="keyword">class</span> <span class="built_in">varchar</span>(<span class="number">255</span>));</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> courses <span class="keyword">values</span> (<span class="string">'A'</span>, <span class="string">'Math'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> courses <span class="keyword">values</span> (<span class="string">'B'</span>, <span class="string">'English'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> courses <span class="keyword">values</span> (<span class="string">'C'</span>, <span class="string">'Math'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> courses <span class="keyword">values</span> (<span class="string">'D'</span>, <span class="string">'Biology'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> courses <span class="keyword">values</span> (<span class="string">'E'</span>, <span class="string">'Math'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> courses <span class="keyword">values</span> (<span class="string">'F'</span>, <span class="string">'Computer'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> courses <span class="keyword">values</span> (<span class="string">'G'</span>, <span class="string">'Math'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> courses <span class="keyword">values</span> (<span class="string">'H'</span>, <span class="string">'Math'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> courses <span class="keyword">values</span> (<span class="string">'I'</span>, <span class="string">'Math'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> courses;</span><br></pre></td></tr></table></figure>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">class</span></span><br><span class="line"><span class="keyword">from</span> courses</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> <span class="keyword">class</span> </span><br><span class="line"><span class="keyword">having</span> <span class="keyword">count</span>(<span class="keyword">distinct</span>(student)) &gt;= <span class="number">5</span>;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mopack/year/02/23/LC183-Customers-Who-Never-Order/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mopack Chiou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mopack's Code">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/year/02/23/LC183-Customers-Who-Never-Order/" itemprop="url">LC183. Customers Who Never Order</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-02-23T11:49:28+08:00">
+                2019-02-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/SQL/" itemprop="url" rel="index">
+                    <span itemprop="name">SQL</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>有兩個表格Customers和Orders，其中Order.CustomerId = Customers.Id。找出所有不在Order上的Customers的Name欄位，並改欄位名為’Customers’。</p>
+<p><a href="https://leetcode.com/problems/customers-who-never-order/" target="_blank" rel="noopener">https://leetcode.com/problems/customers-who-never-order/</a></p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> wood;</span><br><span class="line"></span><br><span class="line"><span class="keyword">Create</span> <span class="keyword">table</span> <span class="keyword">If</span> <span class="keyword">Not</span> <span class="keyword">Exists</span> Customers (<span class="keyword">Id</span> <span class="built_in">int</span>, <span class="keyword">Name</span> <span class="built_in">varchar</span>(<span class="number">255</span>));</span><br><span class="line"><span class="keyword">Create</span> <span class="keyword">table</span> <span class="keyword">If</span> <span class="keyword">Not</span> <span class="keyword">Exists</span> Orders (<span class="keyword">Id</span> <span class="built_in">int</span>, CustomerId <span class="built_in">int</span>);</span><br><span class="line"><span class="keyword">Truncate</span> <span class="keyword">table</span> Customers;</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Customers (<span class="keyword">Id</span>, <span class="keyword">Name</span>) <span class="keyword">values</span> (<span class="string">'1'</span>, <span class="string">'Joe'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Customers (<span class="keyword">Id</span>, <span class="keyword">Name</span>) <span class="keyword">values</span> (<span class="string">'2'</span>, <span class="string">'Henry'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Customers (<span class="keyword">Id</span>, <span class="keyword">Name</span>) <span class="keyword">values</span> (<span class="string">'3'</span>, <span class="string">'Sam'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Customers (<span class="keyword">Id</span>, <span class="keyword">Name</span>) <span class="keyword">values</span> (<span class="string">'4'</span>, <span class="string">'Max'</span>);</span><br><span class="line"><span class="keyword">Truncate</span> <span class="keyword">table</span> Orders;</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Orders (<span class="keyword">Id</span>, CustomerId) <span class="keyword">values</span> (<span class="string">'1'</span>, <span class="string">'3'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Orders (<span class="keyword">Id</span>, CustomerId) <span class="keyword">values</span> (<span class="string">'2'</span>, <span class="string">'1'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> Customers;</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> Orders;</span><br></pre></td></tr></table></figure>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><ul>
+<li>Left Join</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> c.Name <span class="keyword">as</span> Customers</span><br><span class="line"><span class="keyword">from</span> Customers c <span class="keyword">left</span> <span class="keyword">join</span> Orders o</span><br><span class="line"><span class="keyword">on</span> c.Id = o.CustomerId</span><br><span class="line"><span class="keyword">where</span> o.CustomerId <span class="keyword">is</span> <span class="literal">NULL</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>In</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> c.Name <span class="keyword">as</span> Customers</span><br><span class="line"><span class="keyword">from</span> Customers c </span><br><span class="line"><span class="keyword">where</span> c.Id <span class="keyword">not</span> <span class="keyword">in</span> </span><br><span class="line">(<span class="keyword">select</span> o.CustomerId</span><br><span class="line"><span class="keyword">from</span> Orders o);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Exists</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> c.Name <span class="keyword">as</span> Customers</span><br><span class="line"><span class="keyword">from</span> Customers c </span><br><span class="line"><span class="keyword">where</span> <span class="keyword">not</span> <span class="keyword">exists</span> </span><br><span class="line">(<span class="keyword">select</span> <span class="keyword">Id</span></span><br><span class="line"><span class="keyword">from</span> Orders o</span><br><span class="line"><span class="keyword">where</span> c.Id = o.CustomerId);</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://github.com/mopack/year/02/23/LC181-Employees-Earning-More-Than-Their-Managers/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1021,534 +1765,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mopack/year/02/23/LC595-Big-Countries/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mopack Chiou">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mopack's Code">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/year/02/23/LC595-Big-Countries/" itemprop="url">LC595. Big Countries</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-02-23T08:19:11+08:00">
-                2019-02-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/SQL/" itemprop="url" rel="index">
-                    <span itemprop="name">SQL</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>從World表格中，取得所有 area &gt; 3000000 或 population &gt; 25000000 的 name, population, area 欄位。</p>
-<p><a href="https://leetcode.com/problems/big-countries/" target="_blank" rel="noopener">https://leetcode.com/problems/big-countries/</a></p>
-<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> wood;</span><br><span class="line"></span><br><span class="line"><span class="keyword">Create</span> <span class="keyword">table</span> <span class="keyword">If</span> <span class="keyword">Not</span> <span class="keyword">Exists</span> World (<span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">255</span>), continent <span class="built_in">varchar</span>(<span class="number">255</span>), area <span class="built_in">int</span>, population <span class="built_in">int</span>, gdp <span class="built_in">int</span>);</span><br><span class="line"><span class="keyword">Truncate</span> <span class="keyword">table</span> World;</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> World (<span class="keyword">name</span>, continent, area, population, gdp) <span class="keyword">values</span> (<span class="string">'Afghanistan'</span>, <span class="string">'Asia'</span>, <span class="string">'652230'</span>, <span class="string">'25500100'</span>, <span class="string">'20343000000'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> World (<span class="keyword">name</span>, continent, area, population, gdp) <span class="keyword">values</span> (<span class="string">'Albania'</span>, <span class="string">'Europe'</span>, <span class="string">'28748'</span>, <span class="string">'2831741'</span>, <span class="string">'12960000000'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> World (<span class="keyword">name</span>, continent, area, population, gdp) <span class="keyword">values</span> (<span class="string">'Algeria'</span>, <span class="string">'Africa'</span>, <span class="string">'2381741'</span>, <span class="string">'37100000'</span>, <span class="string">'188681000000'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> World (<span class="keyword">name</span>, continent, area, population, gdp) <span class="keyword">values</span> (<span class="string">'Andorra'</span>, <span class="string">'Europe'</span>, <span class="string">'468'</span>, <span class="string">'78115'</span>, <span class="string">'3712000000'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> World (<span class="keyword">name</span>, continent, area, population, gdp) <span class="keyword">values</span> (<span class="string">'Angola'</span>, <span class="string">'Africa'</span>, <span class="string">'1246700'</span>, <span class="string">'20609294'</span>, <span class="string">'100990000000'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> World;</span><br></pre></td></tr></table></figure>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">name</span>, population, area</span><br><span class="line"><span class="keyword">from</span> World</span><br><span class="line"><span class="keyword">where</span> area &gt; <span class="number">3000000</span> <span class="keyword">or</span> population &gt; <span class="number">25000000</span>;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mopack/year/02/23/URI2602-Basic-Select/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mopack Chiou">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mopack's Code">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/year/02/23/URI2602-Basic-Select/" itemprop="url">URI2602. Basic Select</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-02-23T07:44:48+08:00">
-                2019-02-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/SQL/" itemprop="url" rel="index">
-                    <span itemprop="name">SQL</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>從customers表格中，取得所有state=’RS’的name欄位。</p>
-<p><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/2602" target="_blank" rel="noopener">https://www.urionlinejudge.com.br/judge/en/problems/view/2602</a></p>
-<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> wood;</span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> customers;</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> customers (</span><br><span class="line">  <span class="keyword">id</span> <span class="built_in">NUMERIC</span> PRIMARY <span class="keyword">KEY</span>,</span><br><span class="line">  <span class="keyword">name</span> <span class="built_in">CHARACTER</span> <span class="built_in">VARYING</span> (<span class="number">255</span>),</span><br><span class="line">  street <span class="built_in">CHARACTER</span> <span class="built_in">VARYING</span> (<span class="number">255</span>),</span><br><span class="line">  city <span class="built_in">CHARACTER</span> <span class="built_in">VARYING</span> (<span class="number">255</span>),</span><br><span class="line">  state <span class="built_in">CHAR</span> (<span class="number">2</span>),</span><br><span class="line">  credit_limit <span class="built_in">NUMERIC</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> customers (<span class="keyword">id</span>, <span class="keyword">name</span>, street, city, state, credit_limit)</span><br><span class="line"><span class="keyword">VALUES</span> </span><br><span class="line">  (<span class="number">1</span>,	<span class="string">'Pedro Augusto da Rocha'</span>,	<span class="string">'Rua Pedro Carlos Hoffman'</span>,	<span class="string">'Porto Alegre'</span>,	<span class="string">'RS'</span>,	<span class="number">700.00</span>),</span><br><span class="line">  (<span class="number">2</span>,	<span class="string">'Antonio Carlos Mamel'</span>,	<span class="string">'Av. Pinheiros'</span>, <span class="string">'Belo Horizonte'</span>,	<span class="string">'MG'</span>,	<span class="number">3500.50</span>),</span><br><span class="line">  (<span class="number">3</span>,	<span class="string">'Luiza Augusta Mhor'</span>,	<span class="string">'Rua Salto Grande'</span>,	<span class="string">'Niteroi'</span>,	<span class="string">'RJ'</span>,	<span class="number">4000.00</span>),	</span><br><span class="line">  (<span class="number">4</span>,	<span class="string">'Jane Ester'</span>,	<span class="string">'Av 7 de setembro'</span>,	<span class="string">'Erechim'</span>,	<span class="string">'RS'</span>,	<span class="number">800.00</span>),</span><br><span class="line">  (<span class="number">5</span>, <span class="string">'Marcos Antônio dos Santos'</span>,	<span class="string">'Av Farrapos'</span>,	<span class="string">'Porto Alegre'</span>,	<span class="string">'RS'</span>,	<span class="number">4250.25</span>);</span><br></pre></td></tr></table></figure>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">name</span></span><br><span class="line"><span class="keyword">from</span> customers</span><br><span class="line"><span class="keyword">where</span> state = <span class="string">'RS'</span>;</span><br></pre></td></tr></table></figure>
-<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ul>
-<li>String</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>MySQL</th>
-<th>ProgestSQL</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>資料型態</td>
-<td>text</td>
-<td>varchar</td>
-</tr>
-<tr>
-<td>字面常量</td>
-<td>單雙引號皆可</td>
-<td>單引號</td>
-</tr>
-</tbody>
-</table>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mopack/year/02/23/Cocos2d-x-Lua的專案建置，以及Win32和Apk的輸出檔建置/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mopack Chiou">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mopack's Code">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/year/02/23/Cocos2d-x-Lua的專案建置，以及Win32和Apk的輸出檔建置/" itemprop="url">Cocos2d-X Lua的專案建置，以及Win32和Apk的輸出檔建置</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-02-23T07:40:02+08:00">
-                2019-02-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/cocos2d/" itemprop="url" rel="index">
-                    <span itemprop="name">cocos2d</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><strong>安裝Python、JDK、Android Studio、Android SDK、Android NDK、Ninja</strong></p>
-<ul>
-<li><p>python-2.7.15 (C:\Programs\Python27)</p>
-</li>
-<li><p>jdk-8u201-windows-x64 (C:\Program Files\Java\jdk1.8.0_201)</p>
-</li>
-<li><p>Android Studio (C:\Program Files\Android\Android Studio)</p>
-</li>
-<li><p>Android SDK 5.0 (C:\Programs\AndroidSDK\SDK)，使用Android Studio的SDK Manager安裝</p>
-</li>
-<li><p>android-ndk-r17c (C:\Programs\AndroidSDK\SDK\ndk-bundle)，將內部原有的NDK全部刪除，然後解壓縮至此資料夾</p>
-</li>
-<li><p>ninja-win-1.9.0 (C:\Programs\ninja-win-1.9.0)，載點：<a href="https://github.com/ninja-build/ninja/releases">https://github.com/ninja-build/ninja/releases</a></p>
-</li>
-</ul>
-<p><strong>檢查環境變數</strong></p>
-<ul>
-<li><p>Path C:\Program Files (x86)\Python27</p>
-</li>
-<li><p>JAVA_HOME C:\Program Files\Java\jdk1.8.0_201 (需自行增加)</p>
-</li>
-<li><p>ANDROID_SDK_ROOT C:\Programs\AndroidSDK\SDK</p>
-</li>
-<li><p>NDK_ROOT C:\Programs\AndroidSDK\SDK\ndk-bundle</p>
-</li>
-<li><p>PATH C:\Programs\ninja-win-1.9.0 (需自行增加)</p>
-</li>
-</ul>
-<p><strong>安裝Cocos2d-x</strong></p>
-<ul>
-<li><p>cocos2d-x-3.17.1 (C:\Programs\cocos2d-x-3.17.1)</p>
-</li>
-<li><p>CMD執行指令：</p>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Programs\cocos2d-x-3.17.1\setup.py</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>安裝後將新增三個環境變數：COCOS_CONSOLE_ROOT、COCOS_X_ROOT、COCOS_TEMPLATES_ROOT</p>
-</li>
-<li><p>將系統語言改成中文(簡體，中國)，這是因為部分cocos指令不能在繁中系統下使用</p>
-</li>
-</ul>
-<p><strong>建立Cocos2d-x Lua專案</strong></p>
-<ul>
-<li>CMD執行指令(需為簡中系統)：</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cocos new RPGxx -l lua -d C:\Cocos2D-lua</span><br></pre></td></tr></table></figure>
-<p><strong>進行Win32檔的編譯</strong></p>
-<ul>
-<li>以Visual Studio 2015執行以下sln檔，並進行編譯(繁中系統下可行)：</li>
-</ul>
-<p>C:\Cocos2D-lua\RPGxx\frameworks\runtime-src\proj.win32\RPGxx.sln</p>
-<ul>
-<li>亦可以使用CMD執行指令(需為簡中系統)：</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> C:\Cocos2D-lua\RPGxx\frameworks\runtime-src\proj.win32</span><br><span class="line">cocos compile -p win32</span><br></pre></td></tr></table></figure>
-<p><strong>進行apk檔的建置</strong></p>
-<ul>
-<li>CMD執行指令(需為簡中系統)：</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> C:\Cocos2D-lua\RPGxx\frameworks\runtime-src\proj.android</span><br><span class="line">cocos compile -p android --android-studio</span><br></pre></td></tr></table></figure>
-<p><strong>附記</strong></p>
-<ul>
-<li><p>某些程式之所以安裝在C:\Programs，是因為有些程式在有空格的路徑容易出錯，例如SDK目錄中的NDK目錄不建議放在有空格的路徑(Program Files)，索性全放置在一個特定資料夾統一管理。並不一定要用此路徑名稱。</p>
-</li>
-<li><p>Ninja可將Apk建置失敗的風險降低，並優化建置檔案的性能。</p>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1594,7 +1815,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -1605,7 +1826,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分類</span>
                 </a>
               </div>
@@ -1616,7 +1837,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
