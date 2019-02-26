@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="SQL,">
+  <meta name="keywords" content="Array,Hash Table,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Description在salary表格中，將sex欄位’m’與’f’互換。 https://leetcode.com/problems/swap-salary/ Input input:  12345678910use wood;create table if not exists salary(id int, name varchar(100), sex char(1), salary int">
-<meta name="keywords" content="SQL">
+<meta name="description" content="Description給定個一陣列，判別是否有元素重複。 https://leetcode.com/problems/contains-duplicate/ C++12345678910111213//56ms/PR29class Solution &amp;#123;public:	bool containsDuplicate(vector&amp;lt;int&amp;gt;&amp;amp;N) &amp;#123;		if (N">
+<meta name="keywords" content="Array,Hash Table">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LC627. Swap Salary">
-<meta property="og:url" content="https://github.com/mopack/year/02/23/LC627-Swap-Salary/index.html">
+<meta property="og:title" content="LC217. Contains Duplicate">
+<meta property="og:url" content="https://github.com/mopack/year/02/26/LC217-Contains-Duplicate/index.html">
 <meta property="og:site_name" content="Mopack&#39;s Code">
-<meta property="og:description" content="Description在salary表格中，將sex欄位’m’與’f’互換。 https://leetcode.com/problems/swap-salary/ Input input:  12345678910use wood;create table if not exists salary(id int, name varchar(100), sex char(1), salary int">
+<meta property="og:description" content="Description給定個一陣列，判別是否有元素重複。 https://leetcode.com/problems/contains-duplicate/ C++12345678910111213//56ms/PR29class Solution &amp;#123;public:	bool containsDuplicate(vector&amp;lt;int&amp;gt;&amp;amp;N) &amp;#123;		if (N">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2019-02-23T03:21:09.456Z">
+<meta property="og:updated_time" content="2019-02-26T11:17:24.276Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LC627. Swap Salary">
-<meta name="twitter:description" content="Description在salary表格中，將sex欄位’m’與’f’互換。 https://leetcode.com/problems/swap-salary/ Input input:  12345678910use wood;create table if not exists salary(id int, name varchar(100), sex char(1), salary int">
+<meta name="twitter:title" content="LC217. Contains Duplicate">
+<meta name="twitter:description" content="Description給定個一陣列，判別是否有元素重複。 https://leetcode.com/problems/contains-duplicate/ C++12345678910111213//56ms/PR29class Solution &amp;#123;public:	bool containsDuplicate(vector&amp;lt;int&amp;gt;&amp;amp;N) &amp;#123;		if (N">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://github.com/mopack/year/02/23/LC627-Swap-Salary/">
+  <link rel="canonical" href="https://github.com/mopack/year/02/26/LC217-Contains-Duplicate/">
 
 
 
 
 
-  <title>LC627. Swap Salary | Mopack's Code</title>
+  <title>LC217. Contains Duplicate | Mopack's Code</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mopack/year/02/23/LC627-Swap-Salary/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mopack/year/02/26/LC217-Contains-Duplicate/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mopack Chiou">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">LC627. Swap Salary</h1>
+          <h1 class="post-title" itemprop="name headline">LC217. Contains Duplicate</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-02-23T09:56:48+08:00">
-                2019-02-23
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-02-26T18:45:26+08:00">
+                2019-02-26
               </time>
             
 
@@ -315,8 +315,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/SQL/" itemprop="url" rel="index">
-                    <span itemprop="name">SQL</span>
+                  <a href="/categories/Array/" itemprop="url" rel="index">
+                    <span itemprop="name">Array</span>
                   </a>
                 </span>
 
@@ -352,32 +352,12 @@
       
 
       
-        <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>在salary表格中，將sex欄位’m’與’f’互換。</p>
-<p><a href="https://leetcode.com/problems/swap-salary/" target="_blank" rel="noopener">https://leetcode.com/problems/swap-salary/</a></p>
-<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><ul>
-<li>input:</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> wood;</span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> <span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exists</span> salary(<span class="keyword">id</span> <span class="built_in">int</span>, <span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">100</span>), sex <span class="built_in">char</span>(<span class="number">1</span>), salary <span class="built_in">int</span>);</span><br><span class="line"><span class="keyword">Truncate</span> <span class="keyword">table</span> salary;</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> salary (<span class="keyword">id</span>, <span class="keyword">name</span>, sex, salary) <span class="keyword">values</span> (<span class="string">'1'</span>, <span class="string">'A'</span>, <span class="string">'m'</span>, <span class="string">'2500'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> salary (<span class="keyword">id</span>, <span class="keyword">name</span>, sex, salary) <span class="keyword">values</span> (<span class="string">'2'</span>, <span class="string">'B'</span>, <span class="string">'f'</span>, <span class="string">'1500'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> salary (<span class="keyword">id</span>, <span class="keyword">name</span>, sex, salary) <span class="keyword">values</span> (<span class="string">'3'</span>, <span class="string">'C'</span>, <span class="string">'m'</span>, <span class="string">'5500'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> salary (<span class="keyword">id</span>, <span class="keyword">name</span>, sex, salary) <span class="keyword">values</span> (<span class="string">'4'</span>, <span class="string">'D'</span>, <span class="string">'f'</span>, <span class="string">'500'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> salary;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>safe updates:</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">'%safe_updates%'</span>;</span><br><span class="line"><span class="keyword">set</span> sql_safe_updates = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
-<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions"></a>Solutions</h2><ul>
-<li>IF</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> salary </span><br><span class="line"><span class="keyword">set</span> sex = <span class="keyword">if</span>(sex=<span class="string">'m'</span>,<span class="string">'f'</span>,<span class="string">'m'</span>);</span><br></pre></td></tr></table></figure>
-<ul>
-<li>XOR</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> salary</span><br><span class="line"><span class="keyword">set</span> sex = <span class="built_in">char</span>(<span class="keyword">ascii</span>(sex) ^ <span class="keyword">ASCII</span>(<span class="string">'f'</span>) ^ <span class="keyword">ASCII</span>(<span class="string">'m'</span>));</span><br></pre></td></tr></table></figure>
-<ul>
-<li>XOR2</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">ASCII</span>(<span class="string">'f'</span>) ^ <span class="keyword">ASCII</span>(<span class="string">'m'</span>); <span class="comment">-- PreCoding (= 11)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">update</span> salary</span><br><span class="line"><span class="keyword">set</span> sex = <span class="built_in">char</span>(<span class="keyword">ascii</span>(sex) ^ <span class="number">11</span>);</span><br></pre></td></tr></table></figure>
-<ul>
-<li>CASE</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> salary </span><br><span class="line"><span class="keyword">set</span> sex = </span><br><span class="line">(<span class="keyword">case</span> </span><br><span class="line">	<span class="keyword">when</span> sex = <span class="string">'f'</span> <span class="keyword">then</span> <span class="string">'m'</span> </span><br><span class="line">	<span class="keyword">else</span> <span class="string">'f'</span></span><br><span class="line"><span class="keyword">end</span>);</span><br></pre></td></tr></table></figure>
+        <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>給定個一陣列，判別是否有元素重複。</p>
+<p><a href="https://leetcode.com/problems/contains-duplicate/" target="_blank" rel="noopener">https://leetcode.com/problems/contains-duplicate/</a></p>
+<h2 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//56ms/PR29</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">containsDuplicate</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp;N)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (N.size() &lt;= <span class="number">1</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		<span class="built_in">unordered_set</span>&lt;<span class="keyword">int</span>&gt;Set;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">auto</span> n : N) &#123;</span><br><span class="line">			<span class="keyword">if</span> (Set.find(n) != Set.end()) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">			Set.insert(n);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//32ms/PR80</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">containsDuplicate</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp;N)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (N.size() &lt;= <span class="number">1</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		sort(N.begin(), N.end());</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; N.size(); i++)</span><br><span class="line">			<span class="keyword">if</span> (N[i] == N[i - <span class="number">1</span>])<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="Go"><a href="#Go" class="headerlink" title="Go"></a>Go</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//32ms/PR28</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">containsDuplicate</span><span class="params">(n []<span class="keyword">int</span>)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">len</span>(n) &lt;= <span class="number">1</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">	&#125;</span><br><span class="line">	sort.Ints(n)</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">1</span>; i &lt; <span class="built_in">len</span>(n); i = i + <span class="number">1</span> &#123;</span><br><span class="line">		<span class="keyword">if</span> n[i] == n[i<span class="number">-1</span>] &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//20ms/PR100</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">containsDuplicate</span><span class="params">(n []<span class="keyword">int</span>)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> exist <span class="keyword">map</span>[<span class="keyword">int</span>]<span class="keyword">bool</span> = <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">int</span>]<span class="keyword">bool</span>)</span><br><span class="line">	<span class="keyword">for</span> _, v := <span class="keyword">range</span> n &#123;</span><br><span class="line">		_, ok := exist[v]</span><br><span class="line">		<span class="keyword">if</span> ok &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">		&#125;</span><br><span class="line">		exist[v] = <span class="literal">true</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -395,7 +375,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/SQL/" rel="tag"># SQL</a>
+            <a href="/tags/Array/" rel="tag"># Array</a>
+          
+            <a href="/tags/Hash-Table/" rel="tag"># Hash Table</a>
           
         </div>
       
@@ -408,8 +390,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/year/02/23/LC595-Big-Countries/" rel="next" title="LC595. Big Countries">
-                <i class="fa fa-chevron-left"></i> LC595. Big Countries
+              <a href="/year/02/26/LC70-Climbing-Stairs/" rel="next" title="LC70. Climbing Stairs">
+                <i class="fa fa-chevron-left"></i> LC70. Climbing Stairs
               </a>
             
           </div>
@@ -417,10 +399,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/year/02/23/LC620-Not-Boring-Movies/" rel="prev" title="LC620. Not Boring Movies">
-                LC620. Not Boring Movies <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -552,7 +530,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Input"><span class="nav-number">2.</span> <span class="nav-text">Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solutions"><span class="nav-number">3.</span> <span class="nav-text">Solutions</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C"><span class="nav-number">2.</span> <span class="nav-text">C++</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Go"><span class="nav-number">3.</span> <span class="nav-text">Go</span></a></li></ol></div>
             
 
           </div>
