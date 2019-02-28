@@ -262,6 +262,150 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mopack/year/02/23/URI2604-Under-10-or-Greater-Than-100/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mopack Chiou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mopack's Code">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/year/02/23/URI2604-Under-10-or-Greater-Than-100/" itemprop="url">URI2604. Under 10 or Greater Than 100</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-02-23T13:38:22+08:00">
+                2019-02-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/SQL/" itemprop="url" rel="index">
+                    <span itemprop="name">SQL</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>從products表格中，取得所有 price<10 或="" price="">100 的id, name欄位。</10></p>
+<p><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/2604" target="_blank" rel="noopener">https://www.urionlinejudge.com.br/judge/en/problems/view/2604</a></p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> wood;</span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> products;</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> products (</span><br><span class="line">  <span class="keyword">id</span> <span class="built_in">NUMERIC</span> PRIMARY <span class="keyword">KEY</span>,</span><br><span class="line">  <span class="keyword">name</span> <span class="built_in">CHARACTER</span> <span class="built_in">VARYING</span> (<span class="number">255</span>),</span><br><span class="line">  amount <span class="built_in">NUMERIC</span>,</span><br><span class="line">  price <span class="built_in">NUMERIC</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> products (<span class="keyword">id</span>, <span class="keyword">name</span>, amount, price)</span><br><span class="line"><span class="keyword">VALUES</span> </span><br><span class="line">  (<span class="number">1</span>,	<span class="string">'Two-door wardrobe'</span>,	<span class="number">100</span>,	<span class="number">80</span>),</span><br><span class="line">  (<span class="number">2</span>,	<span class="string">'Dining table'</span>,	<span class="number">1000</span>,	<span class="number">560</span>),</span><br><span class="line">  (<span class="number">3</span>,	<span class="string">'Towel holder'</span>,	<span class="number">10000</span>,	<span class="number">5.50</span>),</span><br><span class="line">  (<span class="number">4</span>,	<span class="string">'Computer desk'</span>,	<span class="number">350</span>,	<span class="number">100</span>),</span><br><span class="line">  (<span class="number">5</span>,	<span class="string">'Chair'</span>,	<span class="number">3000</span>,	<span class="number">210.64</span>),</span><br><span class="line">  (<span class="number">6</span>,	<span class="string">'Single bed'</span>,	<span class="number">750</span>,	<span class="number">99</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> products;</span><br></pre></td></tr></table></figure>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">id</span>, <span class="keyword">name</span></span><br><span class="line"><span class="keyword">from</span> products</span><br><span class="line"><span class="keyword">where</span> price &lt; <span class="number">10</span> <span class="keyword">or</span> price &gt; <span class="number">100</span>;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://github.com/mopack/year/02/23/URI2603-Customer-Address/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1579,151 +1723,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mopack/year/02/23/LC175-Combine-Two-Tables/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mopack Chiou">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mopack's Code">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/year/02/23/LC175-Combine-Two-Tables/" itemprop="url">LC175. Combine Two Tables</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-02-23T11:04:12+08:00">
-                2019-02-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/SQL/" itemprop="url" rel="index">
-                    <span itemprop="name">SQL</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>將Person和Address兩表格依Person.PersonId = Address.PersonId合併，秀出合併表格的Person.FirstName, Person.LastName, Address.City, Address.State。</p>
-<p><a href="https://leetcode.com/problems/combine-two-tables/" target="_blank" rel="noopener">https://leetcode.com/problems/combine-two-tables/</a></p>
-<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> wood;</span><br><span class="line"></span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> person;</span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> address;</span><br><span class="line"></span><br><span class="line"><span class="keyword">Create</span> <span class="keyword">table</span> Person (PersonId <span class="built_in">int</span>, FirstName <span class="built_in">varchar</span>(<span class="number">255</span>), LastName <span class="built_in">varchar</span>(<span class="number">255</span>));</span><br><span class="line"><span class="keyword">Create</span> <span class="keyword">table</span> Address (AddressId <span class="built_in">int</span>, PersonId <span class="built_in">int</span>, City <span class="built_in">varchar</span>(<span class="number">255</span>), State <span class="built_in">varchar</span>(<span class="number">255</span>));</span><br><span class="line"><span class="keyword">Truncate</span> <span class="keyword">table</span> Person;</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Person (PersonId, LastName, FirstName) <span class="keyword">values</span> (<span class="string">'1'</span>, <span class="string">'Wang'</span>, <span class="string">'Allen'</span>);</span><br><span class="line"><span class="keyword">Truncate</span> <span class="keyword">table</span> Address;</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Address (AddressId, PersonId, City, State) <span class="keyword">values</span> (<span class="string">'1'</span>, <span class="string">'2'</span>, <span class="string">'New York City'</span>, <span class="string">'New York'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> Person;</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> Address;</span><br></pre></td></tr></table></figure>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> p.FirstName, p.LastName, a.City, a.State</span><br><span class="line"><span class="keyword">from</span> Person p <span class="keyword">left</span> <span class="keyword">join</span> Address a <span class="keyword">on</span> p.PersonId = a.PersonId;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1774,7 +1773,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>

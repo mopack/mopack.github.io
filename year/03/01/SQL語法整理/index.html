@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Description從products表格中，取得所有 price100 的id, name欄位。 https://www.urionlinejudge.com.br/judge/en/problems/view/2604 Input1234567891011121314151617181920use wood;drop table products;CREATE TABLE products">
+<meta name="description" content="1. Select型語法 select語法  1234select &apos;欄位名&apos;from &apos;表格名&apos;where &apos;條件式&apos;order by &apos;欄位名&apos; asc/desc  select函數語法  12345select &apos;函數&apos;(&apos;欄位名&apos;)from &apos;表格名&apos;where &apos;條件式&apos;group by &apos;欄位名&apos;having &apos;條件式&apos;  update,delete from語法   更新/新增欄位資">
 <meta name="keywords" content="SQL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="URI2604. Under 10 or Greater Than 100">
-<meta property="og:url" content="https://github.com/mopack/year/02/23/URI2604-Under-10-or-Greater-Than-100/index.html">
+<meta property="og:title" content="SQL語法整理">
+<meta property="og:url" content="https://github.com/mopack/year/03/01/SQL語法整理/index.html">
 <meta property="og:site_name" content="Mopack&#39;s Code">
-<meta property="og:description" content="Description從products表格中，取得所有 price100 的id, name欄位。 https://www.urionlinejudge.com.br/judge/en/problems/view/2604 Input1234567891011121314151617181920use wood;drop table products;CREATE TABLE products">
+<meta property="og:description" content="1. Select型語法 select語法  1234select &apos;欄位名&apos;from &apos;表格名&apos;where &apos;條件式&apos;order by &apos;欄位名&apos; asc/desc  select函數語法  12345select &apos;函數&apos;(&apos;欄位名&apos;)from &apos;表格名&apos;where &apos;條件式&apos;group by &apos;欄位名&apos;having &apos;條件式&apos;  update,delete from語法   更新/新增欄位資">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2019-02-23T05:40:46.348Z">
+<meta property="og:updated_time" content="2019-02-28T22:31:55.842Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="URI2604. Under 10 or Greater Than 100">
-<meta name="twitter:description" content="Description從products表格中，取得所有 price100 的id, name欄位。 https://www.urionlinejudge.com.br/judge/en/problems/view/2604 Input1234567891011121314151617181920use wood;drop table products;CREATE TABLE products">
+<meta name="twitter:title" content="SQL語法整理">
+<meta name="twitter:description" content="1. Select型語法 select語法  1234select &apos;欄位名&apos;from &apos;表格名&apos;where &apos;條件式&apos;order by &apos;欄位名&apos; asc/desc  select函數語法  12345select &apos;函數&apos;(&apos;欄位名&apos;)from &apos;表格名&apos;where &apos;條件式&apos;group by &apos;欄位名&apos;having &apos;條件式&apos;  update,delete from語法   更新/新增欄位資">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://github.com/mopack/year/02/23/URI2604-Under-10-or-Greater-Than-100/">
+  <link rel="canonical" href="https://github.com/mopack/year/03/01/SQL語法整理/">
 
 
 
 
 
-  <title>URI2604. Under 10 or Greater Than 100 | Mopack's Code</title>
+  <title>SQL語法整理 | Mopack's Code</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mopack/year/02/23/URI2604-Under-10-or-Greater-Than-100/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mopack/year/03/01/SQL語法整理/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mopack Chiou">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">URI2604. Under 10 or Greater Than 100</h1>
+          <h1 class="post-title" itemprop="name headline">SQL語法整理</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-02-23T13:38:22+08:00">
-                2019-02-23
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-03-01T05:10:36+08:00">
+                2019-03-01
               </time>
             
 
@@ -352,10 +352,132 @@
       
 
       
-        <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>從products表格中，取得所有 price<10 或="" price="">100 的id, name欄位。</10></p>
-<p><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/2604" target="_blank" rel="noopener">https://www.urionlinejudge.com.br/judge/en/problems/view/2604</a></p>
-<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> wood;</span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> products;</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> products (</span><br><span class="line">  <span class="keyword">id</span> <span class="built_in">NUMERIC</span> PRIMARY <span class="keyword">KEY</span>,</span><br><span class="line">  <span class="keyword">name</span> <span class="built_in">CHARACTER</span> <span class="built_in">VARYING</span> (<span class="number">255</span>),</span><br><span class="line">  amount <span class="built_in">NUMERIC</span>,</span><br><span class="line">  price <span class="built_in">NUMERIC</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> products (<span class="keyword">id</span>, <span class="keyword">name</span>, amount, price)</span><br><span class="line"><span class="keyword">VALUES</span> </span><br><span class="line">  (<span class="number">1</span>,	<span class="string">'Two-door wardrobe'</span>,	<span class="number">100</span>,	<span class="number">80</span>),</span><br><span class="line">  (<span class="number">2</span>,	<span class="string">'Dining table'</span>,	<span class="number">1000</span>,	<span class="number">560</span>),</span><br><span class="line">  (<span class="number">3</span>,	<span class="string">'Towel holder'</span>,	<span class="number">10000</span>,	<span class="number">5.50</span>),</span><br><span class="line">  (<span class="number">4</span>,	<span class="string">'Computer desk'</span>,	<span class="number">350</span>,	<span class="number">100</span>),</span><br><span class="line">  (<span class="number">5</span>,	<span class="string">'Chair'</span>,	<span class="number">3000</span>,	<span class="number">210.64</span>),</span><br><span class="line">  (<span class="number">6</span>,	<span class="string">'Single bed'</span>,	<span class="number">750</span>,	<span class="number">99</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> products;</span><br></pre></td></tr></table></figure>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">id</span>, <span class="keyword">name</span></span><br><span class="line"><span class="keyword">from</span> products</span><br><span class="line"><span class="keyword">where</span> price &lt; <span class="number">10</span> <span class="keyword">or</span> price &gt; <span class="number">100</span>;</span><br></pre></td></tr></table></figure>
+        <h2 id="1-Select型語法"><a href="#1-Select型語法" class="headerlink" title="1. Select型語法"></a>1. Select型語法</h2><ol>
+<li>select語法</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="string">'欄位名'</span></span><br><span class="line"><span class="keyword">from</span> <span class="string">'表格名'</span></span><br><span class="line"><span class="keyword">where</span> <span class="string">'條件式'</span></span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> <span class="string">'欄位名'</span> <span class="keyword">asc</span>/<span class="keyword">desc</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>select函數語法</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="string">'函數'</span>(<span class="string">'欄位名'</span>)</span><br><span class="line"><span class="keyword">from</span> <span class="string">'表格名'</span></span><br><span class="line"><span class="keyword">where</span> <span class="string">'條件式'</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> <span class="string">'欄位名'</span></span><br><span class="line"><span class="keyword">having</span> <span class="string">'條件式'</span></span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>update,delete from語法</li>
+</ol>
+<ul>
+<li>更新/新增欄位資料</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> <span class="string">'表格名'</span></span><br><span class="line"><span class="keyword">set</span> <span class="string">'欄位1'</span> = <span class="string">'值1'</span>, <span class="string">'欄位2'</span> = <span class="string">'值2'</span></span><br><span class="line"><span class="keyword">where</span> <span class="string">'條件式'</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>刪除欄位資料</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> <span class="string">'表格名'</span></span><br><span class="line"><span class="keyword">where</span> <span class="string">'條件式'</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-Table型語法"><a href="#2-Table型語法" class="headerlink" title="2. Table型語法"></a>2. Table型語法</h2><ol>
+<li>alter table語法</li>
+</ol>
+<ul>
+<li>增加欄位</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> <span class="string">'表格名'</span></span><br><span class="line"><span class="keyword">add</span> <span class="string">'欄位名'</span> <span class="string">'資料型態'</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>刪除欄位</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> <span class="string">'表格名'</span></span><br><span class="line"><span class="keyword">drop</span> <span class="string">'欄位名'</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>更新欄位名與資料型態</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> <span class="string">'表格名'</span></span><br><span class="line"><span class="keyword">change</span> <span class="string">'原欄位名'</span> <span class="string">'欄位名'</span> <span class="string">'資料型態'</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>更新資料型態</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> <span class="string">'表格名'</span></span><br><span class="line"><span class="keyword">modify</span> <span class="string">'欄位名'</span> <span class="string">'資料型態'</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>create/truncate/drop table語法</li>
+</ol>
+<ul>
+<li>新增表格</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> <span class="string">'表格名'</span> (</span><br><span class="line"> <span class="string">'變數名1'</span> <span class="string">'變數型態1'</span>,</span><br><span class="line"> ...</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>清空表格</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">truncate</span> <span class="keyword">table</span> <span class="string">'表格名'</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>刪除表格</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> <span class="string">'表格名'</span></span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>insert into語法</li>
+</ol>
+<ul>
+<li>插入資料</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="string">'表格名'</span> (<span class="string">'欄位名1'</span>, <span class="string">'欄位名2'</span>,...)</span><br><span class="line"><span class="keyword">values</span></span><br><span class="line"> (<span class="string">'值1'</span>,<span class="string">'值2'</span>,...),</span><br><span class="line"> ...</span><br></pre></td></tr></table></figure>
+<h2 id="3-修飾"><a href="#3-修飾" class="headerlink" title="3. 修飾"></a>3. 修飾</h2><ul>
+<li>修飾類型</li>
+</ul>
+<blockquote>
+<p>四種修飾</p>
+<blockquote>
+<p>條件式修飾</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>欄位名修飾</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>表格名修飾</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>資料型態修飾</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>五個實踐</p>
+<blockquote>
+<p>函數(欄位名修飾)</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>別名(表格名修飾)</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>Join(表格名修飾)</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>where(條件式修飾)</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>限制(資料型態修飾)</p>
+</blockquote>
+</blockquote>
+<ul>
+<li>修飾語法</li>
+</ul>
+<ol>
+<li><p>函數修飾</p>
+</li>
+<li><p>別名修飾</p>
+</li>
+<li><p>Join修飾</p>
+</li>
+<li><p>where修飾</p>
+</li>
+<li><p>限制修飾</p>
+</li>
+</ol>
+
       
     </div>
     
@@ -385,8 +507,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/year/02/23/URI2603-Customer-Address/" rel="next" title="URI2603.Customer Address">
-                <i class="fa fa-chevron-left"></i> URI2603.Customer Address
+              <a href="/year/02/26/LC217-Contains-Duplicate/" rel="next" title="LC217. Contains Duplicate">
+                <i class="fa fa-chevron-left"></i> LC217. Contains Duplicate
               </a>
             
           </div>
@@ -394,10 +516,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/year/02/23/URI2605-Executive-Representatives/" rel="prev" title="URI2605. Executive Representatives">
-                URI2605. Executive Representatives <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -529,7 +647,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Input"><span class="nav-number">2.</span> <span class="nav-text">Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution"><span class="nav-number">3.</span> <span class="nav-text">Solution</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Select型語法"><span class="nav-number">1.</span> <span class="nav-text">1. Select型語法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Table型語法"><span class="nav-number">2.</span> <span class="nav-text">2. Table型語法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-修飾"><span class="nav-number">3.</span> <span class="nav-text">3. 修飾</span></a></li></ol></div>
             
 
           </div>

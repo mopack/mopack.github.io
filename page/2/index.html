@@ -262,6 +262,153 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mopack/year/02/25/LC367-Valid-Perfect-Square/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mopack Chiou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mopack's Code">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/year/02/25/LC367-Valid-Perfect-Square/" itemprop="url">LC367. Valid Perfect Square</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-02-25T17:14:58+08:00">
+                2019-02-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Math/" itemprop="url" rel="index">
+                    <span itemprop="name">Math</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>給定一個正整數，判定此正整數是否為一個平方數(某正整數的平方)。</p>
+<p><a href="https://leetcode.com/problems/valid-perfect-square/" target="_blank" rel="noopener">https://leetcode.com/problems/valid-perfect-square/</a></p>
+<h2 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">isPerfectSquare</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> x = <span class="keyword">int</span>(<span class="built_in">pow</span>(n, <span class="number">0.5</span>) + <span class="number">1e-4</span>);</span><br><span class="line">		<span class="keyword">return</span> x*x == n;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPerfectSquare</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> x = (<span class="keyword">int</span>) Math.sqrt(n);</span><br><span class="line">        <span class="keyword">return</span> x*x == n;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">isPerfectSquare</span><span class="params">(self, n: int)</span> -&gt; bool:</span></span><br><span class="line">		x = int(n**<span class="number">0.5</span>)</span><br><span class="line">		<span class="keyword">return</span> x*x==n</span><br></pre></td></tr></table></figure>
+<h2 id="Go"><a href="#Go" class="headerlink" title="Go"></a>Go</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">isPerfectSquare</span><span class="params">(n <span class="keyword">int</span>)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">	x := <span class="keyword">int</span>(math.Sqrt(<span class="keyword">float64</span>(n)) + <span class="number">1e-4</span>)</span><br><span class="line">	<span class="keyword">return</span> x*x == n</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://github.com/mopack/year/02/25/LC521-Longest-Uncommon-Subsequence-I/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1579,150 +1726,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mopack/year/02/23/URI2604-Under-10-or-Greater-Than-100/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mopack Chiou">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mopack's Code">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/year/02/23/URI2604-Under-10-or-Greater-Than-100/" itemprop="url">URI2604. Under 10 or Greater Than 100</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-02-23T13:38:22+08:00">
-                2019-02-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/SQL/" itemprop="url" rel="index">
-                    <span itemprop="name">SQL</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>從products表格中，取得所有 price<10 或="" price="">100 的id, name欄位。</10></p>
-<p><a href="https://www.urionlinejudge.com.br/judge/en/problems/view/2604" target="_blank" rel="noopener">https://www.urionlinejudge.com.br/judge/en/problems/view/2604</a></p>
-<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> wood;</span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> products;</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> products (</span><br><span class="line">  <span class="keyword">id</span> <span class="built_in">NUMERIC</span> PRIMARY <span class="keyword">KEY</span>,</span><br><span class="line">  <span class="keyword">name</span> <span class="built_in">CHARACTER</span> <span class="built_in">VARYING</span> (<span class="number">255</span>),</span><br><span class="line">  amount <span class="built_in">NUMERIC</span>,</span><br><span class="line">  price <span class="built_in">NUMERIC</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> products (<span class="keyword">id</span>, <span class="keyword">name</span>, amount, price)</span><br><span class="line"><span class="keyword">VALUES</span> </span><br><span class="line">  (<span class="number">1</span>,	<span class="string">'Two-door wardrobe'</span>,	<span class="number">100</span>,	<span class="number">80</span>),</span><br><span class="line">  (<span class="number">2</span>,	<span class="string">'Dining table'</span>,	<span class="number">1000</span>,	<span class="number">560</span>),</span><br><span class="line">  (<span class="number">3</span>,	<span class="string">'Towel holder'</span>,	<span class="number">10000</span>,	<span class="number">5.50</span>),</span><br><span class="line">  (<span class="number">4</span>,	<span class="string">'Computer desk'</span>,	<span class="number">350</span>,	<span class="number">100</span>),</span><br><span class="line">  (<span class="number">5</span>,	<span class="string">'Chair'</span>,	<span class="number">3000</span>,	<span class="number">210.64</span>),</span><br><span class="line">  (<span class="number">6</span>,	<span class="string">'Single bed'</span>,	<span class="number">750</span>,	<span class="number">99</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> products;</span><br></pre></td></tr></table></figure>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">id</span>, <span class="keyword">name</span></span><br><span class="line"><span class="keyword">from</span> products</span><br><span class="line"><span class="keyword">where</span> price &lt; <span class="number">10</span> <span class="keyword">or</span> price &gt; <span class="number">100</span>;</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1773,7 +1776,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
