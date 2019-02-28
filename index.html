@@ -447,7 +447,7 @@
 </blockquote>
 <blockquote>
 <blockquote>
-<p>別名(表格名修飾)</p>
+<p>別名&amp;限制(表格名修飾)</p>
 </blockquote>
 </blockquote>
 <blockquote>
@@ -469,17 +469,47 @@
 <li>修飾語法</li>
 </ul>
 <ol>
-<li><p>函數修飾</p>
+<li><p>函數修飾<br>avg, count, max, min, sum, count(distinct())<br>concat, substr, trim, length, replace</p>
 </li>
-<li><p>別名修飾</p>
+<li><p>別名&amp;限制修飾<br>別名/as<br>distinct</p>
 </li>
 <li><p>Join修飾</p>
 </li>
-<li><p>where修飾</p>
-</li>
-<li><p>限制修飾</p>
-</li>
 </ol>
+<p>*inner join</p>
+<ul>
+<li>outter join</li>
+</ul>
+<ol start="4">
+<li>where修飾</li>
+</ol>
+<ul>
+<li><p>and, or, !=, =</p>
+</li>
+<li><p>in(‘值1’,’值2’)</p>
+</li>
+<li><p>between ‘值1’ and ‘值2’</p>
+</li>
+<li><p>like ‘%’</p>
+</li>
+<li><p>is not null</p>
+</li>
+</ul>
+<ol start="5">
+<li>限制修飾</li>
+</ol>
+<ul>
+<li><p>not null</p>
+</li>
+<li><p>unique</p>
+</li>
+<li><p>check(‘條件式’)</p>
+</li>
+<li><p>primary key</p>
+</li>
+<li><p>foreign key references</p>
+</li>
+</ul>
 
           
         
