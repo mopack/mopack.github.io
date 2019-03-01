@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Mopack&#39;s Code">
 <meta property="og:description" content="1. Select型語法 select語法  1234select &apos;欄位名&apos;from &apos;表格名&apos;where &apos;條件式&apos;order by &apos;欄位名&apos; asc/desc  select函數語法  12345select &apos;函數&apos;(&apos;欄位名&apos;)from &apos;表格名&apos;where &apos;條件式&apos;group by &apos;欄位名&apos;having &apos;條件式&apos;  update,delete語法   更新/新增欄位資料  12">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2019-03-01T06:17:29.484Z">
+<meta property="og:updated_time" content="2019-03-01T06:37:02.132Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL語法整理">
 <meta name="twitter:description" content="1. Select型語法 select語法  1234select &apos;欄位名&apos;from &apos;表格名&apos;where &apos;條件式&apos;order by &apos;欄位名&apos; asc/desc  select函數語法  12345select &apos;函數&apos;(&apos;欄位名&apos;)from &apos;表格名&apos;where &apos;條件式&apos;group by &apos;欄位名&apos;having &apos;條件式&apos;  update,delete語法   更新/新增欄位資料  12">
@@ -484,7 +484,7 @@
 <ul>
 <li>left join</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">from '表格名' a left join '表格名' b</span><br><span class="line">on a.'欄位名' = b.'欄位名'</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> *</span><br><span class="line"><span class="keyword">from</span> <span class="string">'表格名'</span> a <span class="keyword">left</span> <span class="keyword">join</span> <span class="string">'表格名'</span> b</span><br><span class="line"><span class="keyword">on</span> a.<span class="string">'欄位名'</span> = b.<span class="string">'欄位名'</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>outter join</li>
 </ul>
