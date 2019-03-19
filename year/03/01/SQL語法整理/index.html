@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Mopack&#39;s Code">
 <meta property="og:description" content="1. Select型語法 select語法  12345select &apos;欄位名&apos;from &apos;表格名&apos;where &apos;條件式&apos;order by &apos;欄位名&apos; asc/desclimit &apos;數字&apos; offset &apos;數字&apos;  select函數語法  12345select &apos;函數&apos;(&apos;欄位名&apos;)from &apos;表格名&apos;where &apos;條件式&apos;group by &apos;欄位名&apos;having &apos;條件式&apos;  update,d">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2019-03-03T10:19:58.639Z">
+<meta property="og:updated_time" content="2019-03-08T04:14:32.595Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL語法整理">
 <meta name="twitter:description" content="1. Select型語法 select語法  12345select &apos;欄位名&apos;from &apos;表格名&apos;where &apos;條件式&apos;order by &apos;欄位名&apos; asc/desclimit &apos;數字&apos; offset &apos;數字&apos;  select函數語法  12345select &apos;函數&apos;(&apos;欄位名&apos;)from &apos;表格名&apos;where &apos;條件式&apos;group by &apos;欄位名&apos;having &apos;條件式&apos;  update,d">
@@ -366,7 +366,7 @@
 <ul>
 <li>更新/新增欄位資料</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">'%safe_updates%'</span>;</span><br><span class="line"><span class="keyword">set</span> sql_safe_updates = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">'%safe_updates%'</span>;</span><br><span class="line"><span class="keyword">set</span> sql_safe_updates = <span class="number">1</span>; <span class="comment">-- or set sql_safe_updates = 'ON';</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> <span class="string">'表格名'</span></span><br><span class="line"><span class="keyword">set</span> <span class="string">'欄位1'</span> = <span class="string">'值1'</span>, <span class="string">'欄位2'</span> = <span class="string">'值2'</span></span><br><span class="line"><span class="keyword">where</span> <span class="string">'條件式'</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>刪除欄位資料</li>
@@ -414,53 +414,27 @@
 </ul>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="string">'表格名'</span> (<span class="string">'欄位名1'</span>, <span class="string">'欄位名2'</span>,...)</span><br><span class="line"><span class="keyword">values</span></span><br><span class="line"> (<span class="string">'值1'</span>,<span class="string">'值2'</span>,...),</span><br><span class="line"> ...</span><br></pre></td></tr></table></figure>
 <h2 id="3-修飾"><a href="#3-修飾" class="headerlink" title="3. 修飾"></a>3. 修飾</h2><ul>
-<li>修飾類型</li>
-</ul>
-<blockquote>
+<li>修飾類型<blockquote>
 <p>四種修飾</p>
 <blockquote>
-<p>條件式修飾</p>
+<p>條件式(where)</p>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<blockquote>
+<p>欄位(函數)</p>
 </blockquote>
 </blockquote>
 <blockquote>
 <blockquote>
-<p>欄位名修飾</p>
+<p>表格(Join、別名)</p>
 </blockquote>
 </blockquote>
 <blockquote>
 <blockquote>
-<p>表格名修飾</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>資料型態修飾</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<p>五個實踐</p>
-<blockquote>
-<p>函數(欄位名修飾)</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>別名(表格名修飾)</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>Join(表格名修飾)</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>where(條件式修飾)</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>限制(資料型態修飾)</p>
+<p>資料型態(限制)</p>
 </blockquote>
 </blockquote>
 <ul>
@@ -469,9 +443,13 @@
 <ol>
 <li>where修飾</li>
 </ol>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> *</span><br><span class="line"><span class="keyword">from</span> <span class="string">'表格名'</span></span><br><span class="line"><span class="keyword">where</span> <span class="string">'欄位名'</span> = <span class="number">10</span> <span class="keyword">or</span> (<span class="string">'欄位名'</span> = <span class="number">20</span> <span class="keyword">and</span> <span class="string">'欄位名'</span> != <span class="number">30</span>)</span><br><span class="line"><span class="keyword">where</span> <span class="string">'欄位名'</span> <span class="keyword">in</span> (<span class="string">'10'</span>, <span class="string">'20'</span>)</span><br><span class="line"><span class="keyword">where</span> <span class="string">'欄位名'</span> <span class="keyword">between</span> <span class="number">10</span> <span class="keyword">and</span> <span class="number">20</span></span><br><span class="line"><span class="keyword">where</span> <span class="string">'欄位名'</span> <span class="keyword">like</span> <span class="string">'%su'</span></span><br><span class="line"><span class="keyword">where</span> <span class="string">'欄位名'</span> <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">null</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> *</span><br><span class="line"><span class="keyword">from</span> <span class="string">'表格名'</span></span><br><span class="line"><span class="comment">-- 1. or/and/=/!=</span></span><br><span class="line"><span class="keyword">where</span> <span class="string">'欄位名'</span> = <span class="number">10</span> <span class="keyword">or</span> (<span class="string">'欄位名'</span> = <span class="number">20</span> <span class="keyword">and</span> <span class="string">'欄位名'</span> != <span class="number">30</span>) </span><br><span class="line"><span class="comment">-- 2. in/not in ()</span></span><br><span class="line"><span class="keyword">where</span> <span class="string">'欄位名'</span> <span class="keyword">in</span> (<span class="string">'10'</span>, <span class="string">'20'</span>)</span><br><span class="line"><span class="comment">-- 3. between [and]</span></span><br><span class="line"><span class="keyword">where</span> <span class="string">'欄位名'</span> <span class="keyword">between</span> <span class="number">10</span> <span class="keyword">and</span> <span class="number">20</span></span><br><span class="line"><span class="comment">-- 4. like ['']</span></span><br><span class="line"><span class="keyword">where</span> <span class="string">'欄位名'</span> <span class="keyword">like</span> <span class="string">'%su'</span></span><br><span class="line"><span class="comment">-- 5. is [null/not null]</span></span><br><span class="line"><span class="keyword">where</span> <span class="string">'欄位名'</span> <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">null</span></span><br></pre></td></tr></table></figure>
 <ol start="2">
-<li>別名修飾</li>
+<li><p>欄位(函數)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> <span class="string">'欄位名'</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">avg</span>(<span class="string">'欄位名'</span>), <span class="keyword">sum</span>(<span class="string">'欄位名'</span>), <span class="keyword">count</span>(<span class="string">'欄位名'</span>), <span class="keyword">max</span>(<span class="string">'欄位名'</span>), <span class="keyword">min</span>(<span class="string">'欄位名'</span>)</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">avg</span>(<span class="keyword">distinct</span> <span class="string">'欄位名'</span>), <span class="keyword">sum</span>(<span class="keyword">distinct</span> <span class="string">'欄位名'</span>), <span class="keyword">count</span>(<span class="keyword">distinct</span> <span class="string">'欄位名'</span>)</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">concat</span>(s), <span class="keyword">substr</span>(s), <span class="keyword">trim</span>(s), <span class="keyword">length</span>(s), <span class="keyword">replace</span>(s, <span class="string">'a'</span>, <span class="string">'b'</span>) 欄位(函數)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>表格-別名</p>
+</li>
 </ol>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> *</span><br><span class="line"><span class="keyword">from</span> <span class="string">'表格名'</span> <span class="keyword">as</span> A</span><br><span class="line"><span class="keyword">from</span> <span class="string">'表格名'</span> A</span><br></pre></td></tr></table></figure>
 <ol start="3">
@@ -492,11 +470,7 @@
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> *</span><br><span class="line"><span class="keyword">from</span> <span class="string">'表格名'</span> a, <span class="string">'表格名'</span> b</span><br><span class="line"><span class="keyword">where</span> a.<span class="string">'欄位名'</span> = b.<span class="string">'欄位名'</span> (+)</span><br></pre></td></tr></table></figure>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> *</span><br><span class="line"><span class="keyword">from</span> <span class="string">'表格名'</span> a <span class="keyword">join</span> <span class="string">'表格名'</span> b</span><br><span class="line"><span class="keyword">where</span> a.<span class="string">'欄位名'</span> = b.<span class="string">'欄位名'</span> (+)</span><br></pre></td></tr></table></figure>
 <ol start="4">
-<li><p>函數修飾</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> <span class="string">'欄位名'</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">avg</span>(<span class="string">'欄位名'</span>), <span class="keyword">sum</span>(<span class="string">'欄位名'</span>), <span class="keyword">count</span>(<span class="string">'欄位名'</span>), <span class="keyword">max</span>(<span class="string">'欄位名'</span>), <span class="keyword">min</span>(<span class="string">'欄位名'</span>)</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">avg</span>(<span class="keyword">distinct</span> <span class="string">'欄位名'</span>), <span class="keyword">sum</span>(<span class="keyword">distinct</span> <span class="string">'欄位名'</span>), <span class="keyword">count</span>(<span class="keyword">distinct</span> <span class="string">'欄位名'</span>)</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">concat</span>(s), <span class="keyword">substr</span>(s), <span class="keyword">trim</span>(s), <span class="keyword">length</span>(s), <span class="keyword">replace</span>(s, <span class="string">'a'</span>, <span class="string">'b'</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>限制修飾</p>
-</li>
+<li>限制修飾</li>
 </ol>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> <span class="string">'表格名'</span> (</span><br><span class="line">  <span class="string">'欄位名'</span> <span class="string">'資料型態'</span> <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">  <span class="string">'欄位名'</span> <span class="string">'資料型態'</span> <span class="keyword">unique</span>,</span><br><span class="line">  <span class="string">'欄位名'</span> <span class="string">'資料型態'</span> <span class="keyword">check</span>(<span class="string">'條件式'</span>),</span><br><span class="line">  <span class="string">'欄位名'</span> <span class="string">'資料型態'</span> primary <span class="keyword">key</span>,</span><br><span class="line">  <span class="string">'欄位名'</span> <span class="string">'資料型態'</span> <span class="keyword">references</span> <span class="string">'表格名'</span>(<span class="string">'欄位名'</span>),</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 <h2 id="4-程序"><a href="#4-程序" class="headerlink" title="4. 程序"></a>4. 程序</h2><ul>
@@ -548,6 +522,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/year/03/03/Python語法整理草稿/" rel="prev" title="Python語法整理草稿">
+                Python語法整理草稿 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -624,7 +602,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -635,7 +613,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">分類</span>
                 </a>
               </div>
@@ -646,7 +624,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>

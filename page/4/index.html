@@ -262,6 +262,315 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mopack/year/02/23/LC183-Customers-Who-Never-Order/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mopack Chiou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mopack's Code">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/year/02/23/LC183-Customers-Who-Never-Order/" itemprop="url">LC183. Customers Who Never Order</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-02-23T11:49:28+08:00">
+                2019-02-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/SQL/" itemprop="url" rel="index">
+                    <span itemprop="name">SQL</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>有兩個表格Customers和Orders，其中Order.CustomerId = Customers.Id。找出所有不在Order上的Customers的Name欄位，並改欄位名為’Customers’。</p>
+<p><a href="https://leetcode.com/problems/customers-who-never-order/" target="_blank" rel="noopener">https://leetcode.com/problems/customers-who-never-order/</a></p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> wood;</span><br><span class="line"></span><br><span class="line"><span class="keyword">Create</span> <span class="keyword">table</span> <span class="keyword">If</span> <span class="keyword">Not</span> <span class="keyword">Exists</span> Customers (<span class="keyword">Id</span> <span class="built_in">int</span>, <span class="keyword">Name</span> <span class="built_in">varchar</span>(<span class="number">255</span>));</span><br><span class="line"><span class="keyword">Create</span> <span class="keyword">table</span> <span class="keyword">If</span> <span class="keyword">Not</span> <span class="keyword">Exists</span> Orders (<span class="keyword">Id</span> <span class="built_in">int</span>, CustomerId <span class="built_in">int</span>);</span><br><span class="line"><span class="keyword">Truncate</span> <span class="keyword">table</span> Customers;</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Customers (<span class="keyword">Id</span>, <span class="keyword">Name</span>) <span class="keyword">values</span> (<span class="string">'1'</span>, <span class="string">'Joe'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Customers (<span class="keyword">Id</span>, <span class="keyword">Name</span>) <span class="keyword">values</span> (<span class="string">'2'</span>, <span class="string">'Henry'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Customers (<span class="keyword">Id</span>, <span class="keyword">Name</span>) <span class="keyword">values</span> (<span class="string">'3'</span>, <span class="string">'Sam'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Customers (<span class="keyword">Id</span>, <span class="keyword">Name</span>) <span class="keyword">values</span> (<span class="string">'4'</span>, <span class="string">'Max'</span>);</span><br><span class="line"><span class="keyword">Truncate</span> <span class="keyword">table</span> Orders;</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Orders (<span class="keyword">Id</span>, CustomerId) <span class="keyword">values</span> (<span class="string">'1'</span>, <span class="string">'3'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Orders (<span class="keyword">Id</span>, CustomerId) <span class="keyword">values</span> (<span class="string">'2'</span>, <span class="string">'1'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> Customers;</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> Orders;</span><br></pre></td></tr></table></figure>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><ul>
+<li>Left Join</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> c.Name <span class="keyword">as</span> Customers</span><br><span class="line"><span class="keyword">from</span> Customers c <span class="keyword">left</span> <span class="keyword">join</span> Orders o</span><br><span class="line"><span class="keyword">on</span> c.Id = o.CustomerId</span><br><span class="line"><span class="keyword">where</span> o.CustomerId <span class="keyword">is</span> <span class="literal">NULL</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>In</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> c.Name <span class="keyword">as</span> Customers</span><br><span class="line"><span class="keyword">from</span> Customers c </span><br><span class="line"><span class="keyword">where</span> c.Id <span class="keyword">not</span> <span class="keyword">in</span> </span><br><span class="line">(<span class="keyword">select</span> o.CustomerId</span><br><span class="line"><span class="keyword">from</span> Orders o);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Exists</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> c.Name <span class="keyword">as</span> Customers</span><br><span class="line"><span class="keyword">from</span> Customers c </span><br><span class="line"><span class="keyword">where</span> <span class="keyword">not</span> <span class="keyword">exists</span> </span><br><span class="line">(<span class="keyword">select</span> <span class="keyword">Id</span></span><br><span class="line"><span class="keyword">from</span> Orders o</span><br><span class="line"><span class="keyword">where</span> c.Id = o.CustomerId);</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mopack/year/02/23/LC181-Employees-Earning-More-Than-Their-Managers/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mopack Chiou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mopack's Code">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/year/02/23/LC181-Employees-Earning-More-Than-Their-Managers/" itemprop="url">LC181. Employees Earning More Than Their Managers</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-02-23T11:35:14+08:00">
+                2019-02-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/SQL/" itemprop="url" rel="index">
+                    <span itemprop="name">SQL</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>從Person表格中，取得所有 Email有重複的橫列，的 Email 欄位。</p>
+<p><a href="https://leetcode.com/problems/employees-earning-more-than-their-managers/" target="_blank" rel="noopener">https://leetcode.com/problems/employees-earning-more-than-their-managers/</a></p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> wood;</span><br><span class="line"></span><br><span class="line"><span class="keyword">Create</span> <span class="keyword">table</span> <span class="keyword">If</span> <span class="keyword">Not</span> <span class="keyword">Exists</span> Employee (<span class="keyword">Id</span> <span class="built_in">int</span>, <span class="keyword">Name</span> <span class="built_in">varchar</span>(<span class="number">255</span>), Salary <span class="built_in">int</span>, ManagerId <span class="built_in">int</span>);</span><br><span class="line"><span class="keyword">Truncate</span> <span class="keyword">table</span> Employee;</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Employee (<span class="keyword">Id</span>, <span class="keyword">Name</span>, Salary, ManagerId) <span class="keyword">values</span> (<span class="string">'1'</span>, <span class="string">'Joe'</span>, <span class="string">'70000'</span>, <span class="string">'3'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Employee (<span class="keyword">Id</span>, <span class="keyword">Name</span>, Salary, ManagerId) <span class="keyword">values</span> (<span class="string">'2'</span>, <span class="string">'Henry'</span>, <span class="string">'80000'</span>, <span class="string">'4'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Employee (<span class="keyword">Id</span>, <span class="keyword">Name</span>, Salary, ManagerId) <span class="keyword">values</span> (<span class="string">'3'</span>, <span class="string">'Sam'</span>, <span class="string">'60000'</span>, <span class="literal">NULL</span>); <span class="comment">-- 'NONE' -&gt; NULL</span></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> Employee (<span class="keyword">Id</span>, <span class="keyword">Name</span>, Salary, ManagerId) <span class="keyword">values</span> (<span class="string">'4'</span>, <span class="string">'Max'</span>, <span class="string">'90000'</span>, <span class="literal">NULL</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> Employee;</span><br></pre></td></tr></table></figure>
+<h2 id="Solutions"><a href="#Solutions" class="headerlink" title="Solutions"></a>Solutions</h2><ul>
+<li>Left Join</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> a.Name <span class="keyword">as</span> <span class="string">'Employee'</span></span><br><span class="line"><span class="keyword">from</span> Employee a <span class="keyword">left</span> <span class="keyword">join</span> Employee b </span><br><span class="line"><span class="keyword">on</span> a.ManagerId = b.Id</span><br><span class="line"><span class="keyword">where</span> a.Salary &gt; b.Salary;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Inner Join</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> a.Name <span class="keyword">as</span> <span class="string">'Employee'</span></span><br><span class="line"><span class="keyword">from</span> Employee a <span class="keyword">join</span> Employee b</span><br><span class="line"><span class="keyword">where</span> a.ManagerId = b.Id <span class="keyword">and</span> a.Salary &gt; b.Salary ;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> a.Name <span class="keyword">as</span> <span class="string">'Employee'</span></span><br><span class="line"><span class="keyword">from</span> Employee a, Employee b</span><br><span class="line"><span class="keyword">where</span> a.ManagerId = b.Id <span class="keyword">and</span> a.Salary &gt; b.Salary ;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://github.com/mopack/year/02/23/LC175-Combine-Two-Tables/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1441,7 +1750,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -1452,7 +1761,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">分類</span>
                 </a>
               </div>
@@ -1463,7 +1772,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>

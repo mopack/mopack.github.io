@@ -262,6 +262,644 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mopack/year/03/16/Java基礎整理/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mopack Chiou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mopack's Code">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/year/03/16/Java基礎整理/" itemprop="url">Java基礎整理</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-03-16T12:57:10+08:00">
+                2019-03-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="0-整體"><a href="#0-整體" class="headerlink" title="0. 整體"></a>0. 整體</h1><blockquote>
+<ol>
+<li>程序導向<blockquote>
+<ol>
+<li>環境建置<blockquote>
+<ol>
+<li>安裝</li>
+<li>編譯(命令列、IDE)</li>
+</ol>
+</blockquote>
+</li>
+<li>變數<blockquote>
+<ol>
+<li>資料型態</li>
+<li>字面常量</li>
+<li>轉換</li>
+<li>基本輸出入</li>
+</ol>
+</blockquote>
+</li>
+<li>運算符<blockquote>
+<ol>
+<li>算數運算、邏輯運算、位元運算、關係、賦值</li>
+<li>條件、類別判別</li>
+</ol>
+</blockquote>
+</li>
+<li>控制流程<blockquote>
+<ol>
+<li>條件流程(if, switch)</li>
+<li>循環流程(for, while, 跳脫字)</li>
+</ol>
+</blockquote>
+</li>
+<li>陣列<blockquote>
+<ol>
+<li>宣告</li>
+<li>歷遍</li>
+<li>Arrays類別</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+</blockquote>
+</li>
+<li>物件導向</li>
+</ol>
+</blockquote>
+<h1 id="1-程序導向"><a href="#1-程序導向" class="headerlink" title="1. 程序導向"></a>1. 程序導向</h1><h2 id="1-環境建置-安裝-amp-編譯"><a href="#1-環境建置-安裝-amp-編譯" class="headerlink" title="1. 環境建置(安裝&amp;編譯)"></a>1. 環境建置(安裝&amp;編譯)</h2><ol>
+<li>安裝</li>
+</ol>
+<ul>
+<li><p>下載、安裝JDK。預設位置為：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Program Files\Java\jdk1.8.0_201</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>設置環境變數(Path)：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Program Files\Java\jdk1.8.0_201</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Program Files\Java\jdk1.8.0_201\bin</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<ol start="2">
+<li>命令列編譯、反編譯</li>
+</ol>
+<ul>
+<li><p>筆記本中撰寫以下，命名為HelloWorld.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"Hello"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>命令列執行以下，會編譯class檔(HelloWorld.class)。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javac HelloWorld.java</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>命令列執行以下，以執行class檔。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java HelloWorld</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>jd-gui可以將.class反編譯為.java的原始碼。</p>
+</li>
+</ul>
+<p><br></p>
+<ol start="3">
+<li>IDE編譯(Eclipse)</li>
+</ol>
+<ul>
+<li><p>File &gt; New &gt; Java Project</p>
+</li>
+<li><p>命名Project名稱，然後選擇Finish。</p>
+</li>
+<li><p>選擇Project下的src，右鍵New &gt; Class。</p>
+</li>
+<li><p>命名Package名稱，命名Class名稱(於Name:)，勾選public static void main(String[] args)。</p>
+</li>
+<li><p>撰寫後按下Run As &gt; Java Application。</p>
+</li>
+</ul>
+<p><br></p>
+<h2 id="2-變數"><a href="#2-變數" class="headerlink" title="2. 變數"></a>2. 變數</h2><ol>
+<li>基本資料型態</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>變量</th>
+<th>大小</th>
+<th>範圍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>byte</td>
+<td>1B</td>
+<td>±127</td>
+</tr>
+<tr>
+<td>short</td>
+<td>2B</td>
+<td>±32767</td>
+</tr>
+<tr>
+<td>int</td>
+<td>4B</td>
+<td>±2147483647</td>
+</tr>
+<tr>
+<td>long</td>
+<td>8B</td>
+<td></td>
+</tr>
+<tr>
+<td>float</td>
+<td>4B</td>
+<td>±e38</td>
+</tr>
+<tr>
+<td>double</td>
+<td>8B</td>
+<td>±e308</td>
+</tr>
+<tr>
+<td>char</td>
+<td>2B</td>
+<td>(Unicode)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>與C++不同處：Java沒有unsigned</li>
+</ul>
+<p><br></p>
+<ol start="2">
+<li>字面常量</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>常量</th>
+<th>範例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>十進制</td>
+<td>10</td>
+</tr>
+<tr>
+<td>八進制</td>
+<td>070</td>
+</tr>
+<tr>
+<td>16進制</td>
+<td>0xA0</td>
+</tr>
+<tr>
+<td>float</td>
+<td>1.0f 1.0F</td>
+</tr>
+<tr>
+<td>double</td>
+<td>1.0d 1.0D 1.0 (浮點數預設為double)</td>
+</tr>
+<tr>
+<td>自然常數</td>
+<td>1.0e3 1.0E3</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>true/false</td>
+</tr>
+<tr>
+<td>字符</td>
+<td>‘a’</td>
+</tr>
+<tr>
+<td>字串</td>
+<td>“ABC”</td>
+</tr>
+<tr>
+<td>空</td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<ol start="3">
+<li>轉換</li>
+</ol>
+<h5 id="自動轉換："><a href="#自動轉換：" class="headerlink" title="自動轉換："></a>自動轉換：</h5><ul>
+<li><p>byte → char,short → int → long → float → double → String</p>
+</li>
+<li><p>與C++不同處：Java的boolean不允許自動轉換</p>
+</li>
+</ul>
+<h5 id="強制轉換："><a href="#強制轉換：" class="headerlink" title="強制轉換："></a>強制轉換：</h5><ul>
+<li>與C++不同處：Java不能用int(x)，只能用C語法的 (int)x</li>
+</ul>
+<p><br></p>
+<ol start="4">
+<li>基本輸出入</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloJava</span> </span>&#123;</span><br><span class="line">	 <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">		 Scanner in = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">		 <span class="keyword">int</span> n = in.nextInt(); </span><br><span class="line">		 String s = in.next(); </span><br><span class="line">		 <span class="keyword">double</span> d = in.nextDouble();</span><br><span class="line">		 <span class="keyword">boolean</span> b = in.hasNext();</span><br><span class="line">		 </span><br><span class="line">		 System.out.println(<span class="string">""</span> + n + <span class="string">' '</span> + s + <span class="string">' '</span> + d + <span class="string">' '</span> + b);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3-運算符"><a href="#3-運算符" class="headerlink" title="3. 運算符"></a>3. 運算符</h2><ol>
+<li>基本五運算：算數運算、位元運算、邏輯、關係、賦值</li>
+</ol>
+<h5 id="1-算數運算：-–"><a href="#1-算數運算：-–" class="headerlink" title="1. 算數運算：+-*/% ++ –"></a>1. 算數運算：+-*/% ++ –</h5><h5 id="2-位元運算：-amp-lt-lt-gt-gt-gt-gt-gt"><a href="#2-位元運算：-amp-lt-lt-gt-gt-gt-gt-gt" class="headerlink" title="2. 位元運算：&amp;|^~ &lt;&lt; &gt;&gt; &gt;&gt;&gt;"></a>2. 位元運算：&amp;|^~ &lt;&lt; &gt;&gt; &gt;&gt;&gt;</h5><h5 id="3-邏輯：-amp-amp-短路邏輯法則"><a href="#3-邏輯：-amp-amp-短路邏輯法則" class="headerlink" title="3. 邏輯：&amp;&amp; || !  (短路邏輯法則)"></a>3. 邏輯：&amp;&amp; || !  (短路邏輯法則)</h5><h5 id="4-關係：-lt-gt-gt-lt"><a href="#4-關係：-lt-gt-gt-lt" class="headerlink" title="4. 關係：== != &lt; &gt; &gt;= &lt;="></a>4. 關係：== != &lt; &gt; &gt;= &lt;=</h5><h5 id="字串比較：s1-equals-s2-數值相等-實體相等"><a href="#字串比較：s1-equals-s2-數值相等-實體相等" class="headerlink" title="* 字串比較：s1.equals(s2) (數值相等), == (實體相等)"></a>* 字串比較：s1.equals(s2) (數值相等), == (實體相等)</h5><h5 id="5-賦值："><a href="#5-賦值：" class="headerlink" title="5. 賦值："></a>5. 賦值：</h5><h5 id="直接賦值"><a href="#直接賦值" class="headerlink" title="直接賦值: ="></a>直接賦值: =</h5><h5 id="算數運算賦值"><a href="#算數運算賦值" class="headerlink" title="算數運算賦值: (+-*/%)="></a>算數運算賦值: (+-*/%)=</h5><h5 id="位元運算賦值-amp-lt-lt-gt-gt"><a href="#位元運算賦值-amp-lt-lt-gt-gt" class="headerlink" title="位元運算賦值: (&amp;|^&lt;&lt;&gt;&gt;)="></a>位元運算賦值: (&amp;|^&lt;&lt;&gt;&gt;)=</h5><p><br></p>
+<ol start="2">
+<li>其他：條件、類別判別</li>
+</ol>
+<h5 id="1-條件："><a href="#1-條件：" class="headerlink" title="1. 條件：()?():()"></a>1. 條件：()?():()</h5><h5 id="2-類別判別instanceof："><a href="#2-類別判別instanceof：" class="headerlink" title="2. 類別判別instanceof："></a>2. 類別判別instanceof：</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line">	String a;</span><br><span class="line">	<span class="keyword">boolean</span> x = a <span class="keyword">instanceof</span> String;</span><br><span class="line">	System.out.println(a);</span><br><span class="line"></span><br><span class="line">	A a = <span class="keyword">new</span> A();</span><br><span class="line">	A b = <span class="keyword">new</span> B();</span><br><span class="line">	System.out.println(a <span class="keyword">instanceof</span> A); <span class="comment">//true</span></span><br><span class="line">	System.out.println(b <span class="keyword">instanceof</span> A); <span class="comment">//true</span></span><br><span class="line">	System.out.println(b <span class="keyword">instanceof</span> B); <span class="comment">//true</span></span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="4-控制流程"><a href="#4-控制流程" class="headerlink" title="4. 控制流程"></a>4. 控制流程</h2><ol>
+<li>條件流程(if, switch)</li>
+</ol>
+<h5 id="1-if"><a href="#1-if" class="headerlink" title="1. if"></a>1. if</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>() &#123;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>() &#123;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h5 id="2-switch"><a href="#2-switch" class="headerlink" title="2. switch"></a>2. switch</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>()&#123;</span><br><span class="line"> <span class="keyword">case</span> x: <span class="keyword">break</span>;</span><br><span class="line"> <span class="keyword">default</span>:</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>與C++不同處：Java的switch僅允許放置可轉換為int和String的類型 (int, String, short, byte, char)。</li>
+</ul>
+<p><br></p>
+<ol start="2">
+<li>循環流程(for, while, 跳脫字)</li>
+</ol>
+<h5 id="1-for"><a href="#1-for" class="headerlink" title="1. for"></a>1. for</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(;;) &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span>[] A = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> a : A)&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="2-while"><a href="#2-while" class="headerlink" title="2. while"></a>2. while</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>()&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">&#125; <span class="keyword">while</span>();</span><br></pre></td></tr></table></figure>
+<h5 id="3-跳脫字"><a href="#3-跳脫字" class="headerlink" title="3. 跳脫字"></a>3. 跳脫字</h5><ul>
+<li>break;</li>
+<li>continue;</li>
+<li>break label;</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">label:</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ;i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">10</span>; j++)&#123;</span><br><span class="line">		System.out.println(<span class="string">""</span>+i+j);</span><br><span class="line">		<span class="keyword">if</span>(i + j == <span class="number">12</span>) <span class="keyword">break</span> label;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>與C++不同處：Java沒有goto，但有break label可脫離多重迴圈</li>
+</ul>
+<h1 id="5-陣列"><a href="#5-陣列" class="headerlink" title="5. 陣列"></a>5. 陣列</h1><ol>
+<li>宣告</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] A;</span><br><span class="line">A = <span class="keyword">new</span> <span class="keyword">int</span>[] &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span>[] A = <span class="keyword">new</span> <span class="keyword">int</span>[] &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br><span class="line"><span class="keyword">int</span>[] A = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>];</span><br><span class="line"><span class="keyword">int</span>[] A = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span>[][] B;</span><br><span class="line">B = <span class="keyword">new</span> <span class="keyword">int</span>[][] &#123;&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;, &#123;<span class="number">4</span>,<span class="number">5</span>&#125;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span>[][] B = <span class="keyword">new</span> <span class="keyword">int</span>[][] &#123;&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;, &#123;<span class="number">4</span>,<span class="number">5</span>&#125;&#125;;</span><br><span class="line"><span class="keyword">int</span>[][] B = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>][<span class="number">3</span>];</span><br><span class="line"><span class="keyword">int</span>[][] B = &#123;&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;, &#123;<span class="number">4</span>,<span class="number">5</span>&#125;&#125;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>預設值：<br>整數:0 浮點數:0.0 char:’\u0000’ boolean:false<br>引用數據類型: null</p>
+</li>
+<li><p>與C++不同處：Java 也可以將[]放置後方，如int A[] = new int[5];，但僅供C++使用者方便，原則上不推薦。</p>
+</li>
+</ul>
+<p><br></p>
+<ol start="2">
+<li>遍歷</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> A[] = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; A.length; i++)&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> a: A)&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>Arrays類別</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloJava</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">		<span class="keyword">int</span>[] A = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;;</span><br><span class="line">		<span class="keyword">int</span>[] B = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;;</span><br><span class="line">		Arrays.equals(A, B);</span><br><span class="line">		Arrays.sort(A);</span><br><span class="line">		Arrays.toString(A);</span><br><span class="line">		Arrays.copyOf(A, <span class="number">5</span>);</span><br><span class="line">		Arrays.binarySearch(A, <span class="number">2</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mopack/year/03/03/Python語法整理草稿/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mopack Chiou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mopack's Code">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/year/03/03/Python語法整理草稿/" itemprop="url">Python語法整理草稿</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-03-03T20:30:56+08:00">
+                2019-03-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li><ol>
+<li>開發環境與編寫規範</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>資料型態、變數與常數</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>表達式與運算子</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>陣列、字串與集合</li>
+</ol>
+</li>
+<li><ol start="5">
+<li>控制流程</li>
+</ol>
+</li>
+<li><ol start="6">
+<li>結構與類別</li>
+</ol>
+</li>
+<li><ol start="7">
+<li>函數與檔案處理</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>標準輸出入</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">""</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更改coding</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: cp-1252 -*-</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>標識符</p>
+</li>
+<li><p>保留字</p>
+</li>
+<li><p>註解</p>
+</li>
+<li><p>多行語句</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = b + \</span><br><span class="line">    c</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># &#123;&#125;,[],()中的多行不需要多行註解</span></span><br><span class="line">A = [<span class="string">'a'</span>,</span><br><span class="line">    <span class="string">'b'</span>]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>資料型態<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">int <span class="comment"># Long(只存在於python2)</span></span><br><span class="line">bool <span class="comment"># True/False</span></span><br><span class="line">float <span class="comment"># 1e2, 1E-2</span></span><br><span class="line">complex <span class="comment"># 1+2j</span></span><br><span class="line"></span><br><span class="line"><span class="number">1.</span> 函數、類別函數</span><br><span class="line">```python</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fun</span><span class="params">(n: int, L: <span class="string">'List[str]'</span>, T: str)</span> -&gt; <span class="keyword">None</span>:</span></span><br><span class="line">    <span class="keyword">return</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fun</span><span class="params">(self, n: int)</span> -&gt; bool:</span></span><br><span class="line">        <span class="keyword">return</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><p>List反轉</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">v[:] = v[::<span class="number">-1</span>]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>List長度</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">len(v)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>while</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> i &lt; <span class="number">5</span>:</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>import</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> math.sqrt</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>資料型態轉換</p>
+</li>
+</ol>
+<ul>
+<li>python不支援隱性資料型態轉換，務必將所有資料型態都做顯性轉換</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a = int(b)</span><br></pre></td></tr></table></figure>
+<ol start="7">
+<li><p>Power</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">y = x**(<span class="number">0.5</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Foreach</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> A:</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>內建二元搜排</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bisect</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>資料型態</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int</span><br><span class="line"><span class="keyword">None</span></span><br><span class="line">bool</span><br><span class="line">str</span><br><span class="line">List[int]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Math</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">math.ceil(n)</span><br><span class="line">math.log(n)</span><br><span class="line">math.sqrt(n)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>內建樣板max/min</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">max(a, b)</span><br><span class="line">min(a, b)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>步進for</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(N), <span class="number">2</span>):</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, n):</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>List Sort</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">N.sort(); <span class="comment"># N: 'List[int]'</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ASCII資料型態轉換</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ord(<span class="string">'a'</span>) <span class="comment"># 97</span></span><br><span class="line">chr(<span class="number">97</span>)  <span class="comment"># 'a'</span></span><br><span class="line">unichr(<span class="number">97</span>) <span class="comment"># 'a'</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>and, or, not</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">and</span></span><br><span class="line"><span class="keyword">or</span></span><br><span class="line"><span class="keyword">not</span></span><br><span class="line">a != b</span><br><span class="line"><span class="comment"># 別用 &amp;&amp;, ||, !</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>二維陣列&amp;迴圈</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">flipAndInvertImage</span><span class="params">(self, A: List[List[int]])</span> -&gt; List[List[int]]:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(A)):</span><br><span class="line">        st, ed = <span class="number">0</span>, (len(A[<span class="number">0</span>]) - <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">while</span> st &lt; ed:</span><br><span class="line">            A[i][st], A[i][ed] = A[i][ed], A[i][st]</span><br><span class="line">            st = st + <span class="number">1</span></span><br><span class="line">            ed = ed - <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">0</span>, len(A[<span class="number">0</span>])):</span><br><span class="line">            <span class="keyword">if</span> A[i][j] == <span class="number">1</span>:</span><br><span class="line">                A[i][j] = <span class="number">0</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                A[i][j] = <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> A</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://github.com/mopack/year/03/01/SQL語法整理/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -369,7 +1007,7 @@
 <ul>
 <li>更新/新增欄位資料</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">'%safe_updates%'</span>;</span><br><span class="line"><span class="keyword">set</span> sql_safe_updates = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">'%safe_updates%'</span>;</span><br><span class="line"><span class="keyword">set</span> sql_safe_updates = <span class="number">1</span>; <span class="comment">-- or set sql_safe_updates = 'ON';</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> <span class="string">'表格名'</span></span><br><span class="line"><span class="keyword">set</span> <span class="string">'欄位1'</span> = <span class="string">'值1'</span>, <span class="string">'欄位2'</span> = <span class="string">'值2'</span></span><br><span class="line"><span class="keyword">where</span> <span class="string">'條件式'</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>刪除欄位資料</li>
@@ -417,53 +1055,27 @@
 </ul>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="string">'表格名'</span> (<span class="string">'欄位名1'</span>, <span class="string">'欄位名2'</span>,...)</span><br><span class="line"><span class="keyword">values</span></span><br><span class="line"> (<span class="string">'值1'</span>,<span class="string">'值2'</span>,...),</span><br><span class="line"> ...</span><br></pre></td></tr></table></figure>
 <h2 id="3-修飾"><a href="#3-修飾" class="headerlink" title="3. 修飾"></a>3. 修飾</h2><ul>
-<li>修飾類型</li>
-</ul>
-<blockquote>
+<li>修飾類型<blockquote>
 <p>四種修飾</p>
 <blockquote>
-<p>條件式修飾</p>
+<p>條件式(where)</p>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<blockquote>
+<p>欄位(函數)</p>
 </blockquote>
 </blockquote>
 <blockquote>
 <blockquote>
-<p>欄位名修飾</p>
+<p>表格(Join、別名)</p>
 </blockquote>
 </blockquote>
 <blockquote>
 <blockquote>
-<p>表格名修飾</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>資料型態修飾</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<p>五個實踐</p>
-<blockquote>
-<p>函數(欄位名修飾)</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>別名(表格名修飾)</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>Join(表格名修飾)</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>where(條件式修飾)</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>限制(資料型態修飾)</p>
+<p>資料型態(限制)</p>
 </blockquote>
 </blockquote>
 <ul>
@@ -472,9 +1084,13 @@
 <ol>
 <li>where修飾</li>
 </ol>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> *</span><br><span class="line"><span class="keyword">from</span> <span class="string">'表格名'</span></span><br><span class="line"><span class="keyword">where</span> <span class="string">'欄位名'</span> = <span class="number">10</span> <span class="keyword">or</span> (<span class="string">'欄位名'</span> = <span class="number">20</span> <span class="keyword">and</span> <span class="string">'欄位名'</span> != <span class="number">30</span>)</span><br><span class="line"><span class="keyword">where</span> <span class="string">'欄位名'</span> <span class="keyword">in</span> (<span class="string">'10'</span>, <span class="string">'20'</span>)</span><br><span class="line"><span class="keyword">where</span> <span class="string">'欄位名'</span> <span class="keyword">between</span> <span class="number">10</span> <span class="keyword">and</span> <span class="number">20</span></span><br><span class="line"><span class="keyword">where</span> <span class="string">'欄位名'</span> <span class="keyword">like</span> <span class="string">'%su'</span></span><br><span class="line"><span class="keyword">where</span> <span class="string">'欄位名'</span> <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">null</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> *</span><br><span class="line"><span class="keyword">from</span> <span class="string">'表格名'</span></span><br><span class="line"><span class="comment">-- 1. or/and/=/!=</span></span><br><span class="line"><span class="keyword">where</span> <span class="string">'欄位名'</span> = <span class="number">10</span> <span class="keyword">or</span> (<span class="string">'欄位名'</span> = <span class="number">20</span> <span class="keyword">and</span> <span class="string">'欄位名'</span> != <span class="number">30</span>) </span><br><span class="line"><span class="comment">-- 2. in/not in ()</span></span><br><span class="line"><span class="keyword">where</span> <span class="string">'欄位名'</span> <span class="keyword">in</span> (<span class="string">'10'</span>, <span class="string">'20'</span>)</span><br><span class="line"><span class="comment">-- 3. between [and]</span></span><br><span class="line"><span class="keyword">where</span> <span class="string">'欄位名'</span> <span class="keyword">between</span> <span class="number">10</span> <span class="keyword">and</span> <span class="number">20</span></span><br><span class="line"><span class="comment">-- 4. like ['']</span></span><br><span class="line"><span class="keyword">where</span> <span class="string">'欄位名'</span> <span class="keyword">like</span> <span class="string">'%su'</span></span><br><span class="line"><span class="comment">-- 5. is [null/not null]</span></span><br><span class="line"><span class="keyword">where</span> <span class="string">'欄位名'</span> <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">null</span></span><br></pre></td></tr></table></figure>
 <ol start="2">
-<li>別名修飾</li>
+<li><p>欄位(函數)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> <span class="string">'欄位名'</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">avg</span>(<span class="string">'欄位名'</span>), <span class="keyword">sum</span>(<span class="string">'欄位名'</span>), <span class="keyword">count</span>(<span class="string">'欄位名'</span>), <span class="keyword">max</span>(<span class="string">'欄位名'</span>), <span class="keyword">min</span>(<span class="string">'欄位名'</span>)</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">avg</span>(<span class="keyword">distinct</span> <span class="string">'欄位名'</span>), <span class="keyword">sum</span>(<span class="keyword">distinct</span> <span class="string">'欄位名'</span>), <span class="keyword">count</span>(<span class="keyword">distinct</span> <span class="string">'欄位名'</span>)</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">concat</span>(s), <span class="keyword">substr</span>(s), <span class="keyword">trim</span>(s), <span class="keyword">length</span>(s), <span class="keyword">replace</span>(s, <span class="string">'a'</span>, <span class="string">'b'</span>) 欄位(函數)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>表格-別名</p>
+</li>
 </ol>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> *</span><br><span class="line"><span class="keyword">from</span> <span class="string">'表格名'</span> <span class="keyword">as</span> A</span><br><span class="line"><span class="keyword">from</span> <span class="string">'表格名'</span> A</span><br></pre></td></tr></table></figure>
 <ol start="3">
@@ -495,11 +1111,7 @@
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> *</span><br><span class="line"><span class="keyword">from</span> <span class="string">'表格名'</span> a, <span class="string">'表格名'</span> b</span><br><span class="line"><span class="keyword">where</span> a.<span class="string">'欄位名'</span> = b.<span class="string">'欄位名'</span> (+)</span><br></pre></td></tr></table></figure>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> *</span><br><span class="line"><span class="keyword">from</span> <span class="string">'表格名'</span> a <span class="keyword">join</span> <span class="string">'表格名'</span> b</span><br><span class="line"><span class="keyword">where</span> a.<span class="string">'欄位名'</span> = b.<span class="string">'欄位名'</span> (+)</span><br></pre></td></tr></table></figure>
 <ol start="4">
-<li><p>函數修飾</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> <span class="string">'欄位名'</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">avg</span>(<span class="string">'欄位名'</span>), <span class="keyword">sum</span>(<span class="string">'欄位名'</span>), <span class="keyword">count</span>(<span class="string">'欄位名'</span>), <span class="keyword">max</span>(<span class="string">'欄位名'</span>), <span class="keyword">min</span>(<span class="string">'欄位名'</span>)</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">avg</span>(<span class="keyword">distinct</span> <span class="string">'欄位名'</span>), <span class="keyword">sum</span>(<span class="keyword">distinct</span> <span class="string">'欄位名'</span>), <span class="keyword">count</span>(<span class="keyword">distinct</span> <span class="string">'欄位名'</span>)</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">concat</span>(s), <span class="keyword">substr</span>(s), <span class="keyword">trim</span>(s), <span class="keyword">length</span>(s), <span class="keyword">replace</span>(s, <span class="string">'a'</span>, <span class="string">'b'</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>限制修飾</p>
-</li>
+<li>限制修飾</li>
 </ol>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> <span class="string">'表格名'</span> (</span><br><span class="line">  <span class="string">'欄位名'</span> <span class="string">'資料型態'</span> <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">  <span class="string">'欄位名'</span> <span class="string">'資料型態'</span> <span class="keyword">unique</span>,</span><br><span class="line">  <span class="string">'欄位名'</span> <span class="string">'資料型態'</span> <span class="keyword">check</span>(<span class="string">'條件式'</span>),</span><br><span class="line">  <span class="string">'欄位名'</span> <span class="string">'資料型態'</span> primary <span class="keyword">key</span>,</span><br><span class="line">  <span class="string">'欄位名'</span> <span class="string">'資料型態'</span> <span class="keyword">references</span> <span class="string">'表格名'</span>(<span class="string">'欄位名'</span>),</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 <h2 id="4-程序"><a href="#4-程序" class="headerlink" title="4. 程序"></a>4. 程序</h2><ul>
@@ -1557,299 +2169,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mopack/year/02/26/LC171-Excel-Sheet-Column-Number/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mopack Chiou">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mopack's Code">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/year/02/26/LC171-Excel-Sheet-Column-Number/" itemprop="url">LC171. Excel Sheet Column Number</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-02-26T12:35:32+08:00">
-                2019-02-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Math/" itemprop="url" rel="index">
-                    <span itemprop="name">Math</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>將Excel的行列字串轉成數字。如A-&gt;1, B-&gt;2,… Z-&gt;26, AA-&gt;27,…。</p>
-<p><a href="https://leetcode.com/problems/excel-sheet-column-number/" target="_blank" rel="noopener">https://leetcode.com/problems/excel-sheet-column-number/</a></p>
-<h2 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">titleToNumber</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> ans = <span class="number">0</span>, a26 = <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = s.size() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--, a26*=<span class="number">26</span>) </span><br><span class="line">			ans += (s[i] - <span class="number">64</span>)*a26;</span><br><span class="line">		<span class="keyword">return</span> ans;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">titleToNumber</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">int</span> ans = <span class="number">0</span>, a26 = <span class="number">1</span>;</span><br><span class="line">    	<span class="keyword">for</span>(<span class="keyword">int</span> i = s.length() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--, a26 *= <span class="number">26</span>)</span><br><span class="line">    		ans += (s.charAt(i) - <span class="number">64</span>) * a26;</span><br><span class="line">    	<span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">titleToNumber</span><span class="params">(self, s: <span class="string">'str'</span>)</span> -&gt; int:</span> </span><br><span class="line">		ans, a26 = <span class="number">0</span>, <span class="number">1</span></span><br><span class="line">		<span class="keyword">for</span> i <span class="keyword">in</span> range(len(s) - <span class="number">1</span>, <span class="number">-1</span>, <span class="number">-1</span>):</span><br><span class="line">			ans += (ord(s[i]) - <span class="number">64</span>) * a26</span><br><span class="line">			a26 = a26 * <span class="number">26</span></span><br><span class="line">		<span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure>
-<h2 id="Go"><a href="#Go" class="headerlink" title="Go"></a>Go</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">titleToNumber</span><span class="params">(s <span class="keyword">string</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">	ans, a26 := <span class="number">0</span>, <span class="number">1</span></span><br><span class="line">	<span class="keyword">for</span> i := <span class="built_in">len</span>(s) - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i-- &#123;</span><br><span class="line">		ans += (<span class="keyword">int</span>(s[i]) - <span class="number">64</span>) * a26</span><br><span class="line">		a26 = a26 * <span class="number">26</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ans</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mopack/year/02/25/LC561-Array-Partition-I/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mopack Chiou">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Mopack's Code">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/year/02/25/LC561-Array-Partition-I/" itemprop="url">LC561. Array Partition I</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-02-25T17:57:32+08:00">
-                2019-02-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Array/" itemprop="url" rel="index">
-                    <span itemprop="name">Array</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>有2n個整數，請將他們組成n個pair，其中每個pair的最小值的總和盡可能最大。請回傳此最大總和值。</p>
-<p><a href="https://leetcode.com/problems/array-partition-i/" target="_blank" rel="noopener">https://leetcode.com/problems/array-partition-i/</a></p>
-<h2 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">arrayPairSum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; N)</span> </span>&#123;</span><br><span class="line">		sort(N.begin(), N.end());</span><br><span class="line">		<span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N.size(); i += <span class="number">2</span>) sum += N[i];</span><br><span class="line">		<span class="keyword">return</span> sum;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">arrayPairSum</span><span class="params">(<span class="keyword">int</span>[] N)</span> </span>&#123;</span><br><span class="line">    	Arrays.sort(N);</span><br><span class="line">    	<span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">    	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N.length; i += <span class="number">2</span>) sum += N[i];</span><br><span class="line">    	<span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">arrayPairSum</span><span class="params">(self, N: <span class="string">'List[int]'</span>)</span> -&gt; int:</span></span><br><span class="line">		N.sort();</span><br><span class="line">		sum = <span class="number">0</span></span><br><span class="line">		<span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(N), <span class="number">2</span>):</span><br><span class="line">			sum = sum + N[i]</span><br><span class="line">		<span class="keyword">return</span> sum</span><br></pre></td></tr></table></figure>
-<h2 id="Go"><a href="#Go" class="headerlink" title="Go"></a>Go</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">arrayPairSum</span><span class="params">(n []<span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123;</span><br><span class="line">	sort.Ints(n)</span><br><span class="line"></span><br><span class="line">	sum := <span class="number">0</span></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="built_in">len</span>(n); i += <span class="number">2</span> &#123;</span><br><span class="line">		sum += n[i]</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> sum</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1900,7 +2219,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -1911,7 +2230,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">分類</span>
                 </a>
               </div>
@@ -1922,7 +2241,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
